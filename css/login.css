@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-color: #1E1E1E;
+    width: 30rem;
+    height: 25rem;
+}
