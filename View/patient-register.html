@@ -6,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/medic-register.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/patient-register.css'>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +16,7 @@
 <body>
 
     <!-- --------------- Menu Sidebar --------------- -->
-
     <nav class="sidebar close">
-
-        <!-- --------------- Ítens Menu Sidebar --------------- -->
         <header>
             <div class="image-text">
                 <span class="image">
@@ -31,9 +28,6 @@
 
         <div class="menu-bar">
             <div class="menu">
-                
-                <!-- --------------- Ícones Menu Sidebar --------------- -->
-
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="./main.html" class="dashboard">
@@ -41,70 +35,49 @@
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
                         <a href="./select-register.html" class="register">
-                            <img src="../Components/SIDEBAR/addsquare-medic.svg">
+                            <img src="../Components/SIDEBAR/addsquare-patient.svg">
                             <span class="text2 nav-text">Cadastro</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
                         <a href="./select-list.html" class="list">
                             <img src="../Components/SIDEBAR/layer-standard.svg">
                             <span class="text3 nav-list">Listagem</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
                         <a href="./login.html">
                             <img src="../Components/SIDEBAR/logout.svg" class="logout">
                             <span class="text4 nav-text">Sair</span>
                         </a>
                     </li>
+
                 </ul>
-
-                <!-- --------------- Ícones Menu Sidebar --------------- -->
-
             </div>
+
         </div>
     </nav>
-
-    <!-- --------------- Conteudo Principal --------------- -->
 
     <section class="home">
         <div class="title">
             <div class="stick"></div>
             <div class="text-menu">Cadastro</div>
         </div>
-        <div class="text-h2">Médico</div>
+        <div class="text-h2">Pacientes</div>
 
         <div class="content-form">
-
-    <!-- --------------- InputFields --------------- -->
-
                 <form method="POST" action="#" class="form">
-
                     <div class="flex-content">
-                        <label for="nome" class="label-form">Nome Completo <span>*</span></label>
+                        <label for="nome" class="label-form">Nome Completo do Paciente <span>*</span></label>
                         <input type="text" name="nome" id="nome" required placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
                     </div>
-
                     <div class="form-flex">
 
                         <div class="flex-content">
-                            <label  class="label-form" for="especialidade">Especialidade Médica <span>*</span></label>
-                            <select name="especialidade" id="especialidade" required class="input-form">
-                                <option value="" disabled selected hidden>Selecione uma opção</option>
-                                <option value="cardiologia">Cardiologia</option>
-                                <option value="dermatologia">Dermatologia</option>
-                                <option value="endocrinologia">Endocrinologia</option>
-                                <option value="gastroenterologia">Gastroenterologia</option>
-                                <option value="neurologia">Neurologia</option>
-                                <option value="oftalmologia">Oftalmologia</option>
-                                <option value="ortopedia">Ortopedia</option>
-                                <option value="pediatria">Pediatria</option>
-                            </select>
+                            <label class="label-form" for="cpf">CPF <span>*</span></label>
+                            <input type="text" name="cpf" id="cpf" required placeholder="Ex.: 123.456.789-00" maxlength="14" class="input-form">
                         </div>
 
                         <div class="flex-content">
@@ -115,44 +88,48 @@
                                 <option value="feminino">Feminino</option>
                             </select>
                         </div>
-
                     </div>
                   
                     <div class="form-flex">
-
-                        <div class="flex-content">
-                            <label class="label-form" for="crm">CRM <span>*</span></label>
-                            <input type="text" name="crm" oninput="formatar_crm(this)"  maxlength="11" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
-                        </div>
-
-                        <div class="flex-content">
-                            <label class="label-form" for="celular">Celular <span>*</span></label>
-                            <input type="text" name="celular" id="celular" required placeholder="Ex.: (88) 9 9653-3482" class="input-form">
-                        </div>
-
-                    </div>
-
-                    <div class="form-flex">
-
-                        <div class="flex-content">
-                            <label class="label-form" for="cpf">CPF <span>*</span></label>
-                            <input type="text" name="cpf" id="cpf" required placeholder="Ex.: 123.456.789-00" maxlength="14" class="input-form">
-                        </div>
                         <div class="flex-content">
                             <label class="label-form" for="data_nascimento">Data de Nascimento <span>*</span></label>
                             <input type="date" name="data_nascimento" id="data_nascimento" required placeholder="Ex.: 25/07/1986" class="input-form">
                         </div>
-
+                        <div class="flex-content">
+                            <label class="label-form" for="celular">Celular <span>*</span></label>
+                            <input type="text" name="celular" id="celular" required placeholder="Ex.: (88) 9 9653-3482" class="input-form">
+                        </div>
                     </div>
 
+                    <div class="form-flex">
+                        <div class="flex-content">
+                            <label class="label-form"   for="endereco">Endereço Completo <span>*</span></label>
+                            <input type="text" name="endereco" id="endereco" required placeholder="Ex.: Rua São Paulo, 986" class="input-form">
+                        </div>
+                        <div class="flex-content">
+                            <label class="label-form" for="data_nascimento">Data da Cirurgia <span>*</span></label>
+                            <input type="date" name="data_nascimento" id="data_nascimento" required placeholder="Ex.: 25/07/1986" class="input-form">
+                        </div>
+                    </div>
                     <div class="flex-content">
-                        <label class="label-form"   for="endereco">Endereço <span>*</span></label>
+                        <label class="label-form"   for="endereco">Historico Médico <span>*</span></label>
                         <input type="text" name="endereco" id="endereco" required placeholder="Ex.: Rua São Paulo, 986" class="input-form-wd">
                     </div>
-
                     <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>
-                
-                </form>
+
+                    <div class="text-h2">Pacientes</div>
+
+                    <div class="form-flex">
+                        <div class="procedure-1">
+
+                        </div>
+                        <div class="procedure-2">
+                            
+                        </div>
+
+                    </div>
+
+                  </form>
                   
         </div>
 
@@ -160,41 +137,42 @@
 
 
 
+
     <script>
-             
-        const cpfInput = document.getElementById('cpf');
+            
+            const cpfInput = document.getElementById('cpf');
 
-        cpfInput.addEventListener('input', function (e) {
-        let cpf = e.target.value;
+            cpfInput.addEventListener('input', function (e) {
+            let cpf = e.target.value;
 
-        cpf = cpf.replace(/\D/g, ''); // remove caracteres não numéricos
+            cpf = cpf.replace(/\D/g, ''); // remove caracteres não numéricos
 
-        if (cpf.length > 0) {
-            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
-        }
+            if (cpf.length > 0) {
+                cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            }
 
-        if (cpf.length > 3) {
-            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
-        }
+            if (cpf.length > 3) {
+                cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            }
 
-        if (cpf.length > 6) {
-            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-        }
+            if (cpf.length > 6) {
+                cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            }
 
-        e.target.value = cpf;
-        });
-                const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-        toggle.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-        })
-        searchBtn.addEventListener("click" , () =>{
-            sidebar.classList.remove("close");
-        })
+            e.target.value = cpf;
+            });
+                    const body = document.querySelector('body'),
+            sidebar = body.querySelector('nav'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+            toggle.addEventListener("click" , () =>{
+                sidebar.classList.toggle("close");
+            })
+            searchBtn.addEventListener("click" , () =>{
+                sidebar.classList.remove("close");
+            })
 
     </script>
 
