@@ -77,20 +77,20 @@ body{
     color: #FFF;
 }
 .text2{
-    font-size: 20px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 1;
-    margin-left: 1rem;
-    color: #FFF;
-}
-.text3{
     font-size: 22px;
+    font-weight: 600;
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
     color: #AC3483;
-    font-weight: 600;
+}
+.text3{
+    font-size: 20px;
+    white-space: nowrap;
+    opacity: 1;
+    margin-left: 1rem;
+    color: #fff;
+    font-weight: 400;
 }
 .text4{
     font-size: 20px;
@@ -155,15 +155,15 @@ body{
 .sidebar.close .bx{
     line-height: 0px!important;
 }
-
 .logout {
     filter: saturate(0%);
-   }
-   .logout:hover{
+}
+
+.logout:hover{
        filter: saturate(100%);
        transition:var(--tran-04) ;
-   }
-
+       color: #AC3483;
+}
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
 }

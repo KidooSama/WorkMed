@@ -69,12 +69,12 @@ body{
 }
 
  .text{
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 600;
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
-    color: #FFF;
+    color: #AC3483;
 }
 .text2{
     font-size: 20px;
@@ -85,12 +85,12 @@ body{
     color: #FFF;
 }
 .text3{
-    font-size: 22px;
+    font-size: 20px;
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
-    color: #AC3483;
-    font-weight: 600;
+    color: #fff;
+    font-weight: 400;
 }
 .text4{
     font-size: 20px;
@@ -100,6 +100,7 @@ body{
     margin-left: 1rem;
     color: #FFF;
 }
+
 .sidebar.close .text{
     opacity: 0;
 }
@@ -138,7 +139,7 @@ body{
     transform: translateY(-50%) rotate(180deg);
     height: 25px;
     width: 25px;
-    background-color: #AC3483;
+    background-color: #16A085;
     color: var(--sidebar-color);
     border-radius: 50%;
     display: flex;
@@ -156,13 +157,41 @@ body{
     line-height: 0px!important;
 }
 
+
+.dashboard{
+    filter: saturate(0%);
+}
+.dashboard:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04) ;
+}
+
+/* .register{
+    
+}
+.register:hover{
+
+} */
+
+.list{
+    filter: saturate(0%);
+}
+.list:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04) ;
+}
+
 .logout {
     filter: saturate(0%);
-   }
-   .logout:hover{
+}
+.logout:hover{
        filter: saturate(100%);
        transition:var(--tran-04) ;
-   }
+}
+
+
+
+
 
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
@@ -235,7 +264,7 @@ body{
 }
 
 .stick{
-    background: linear-gradient(178.3deg, #AC3483 -7.3%, #86319E 51.03%, #3129DB 142.49%);
+    background: linear-gradient(178.3deg, #16A085 -7.3%, #3129DB 142.49%);
     margin-right: 1rem;
     width: .31rem;
     height: 4rem;
@@ -266,161 +295,97 @@ body{
 
 }
 
-/* Card Medic */
-.medic{
-    width: 20em;
+/*---------------- Formulário ------------------*/
+
+.content-form{
+    display: flex;
+    justify-content: center;
+}
+.form{
     display: flex;
     flex-direction: column;
-    background: #2A2A2B;
-    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 3%;
+    width: 55%;
+    color: #FFF;
 }
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
+.btn-form{
+    display: flex;
+    justify-content: end;
 }
-.tx-med{
+.form span{
     color: #16A085;
 }
-.medic img{
-    width: 60%;
-    margin-left: 20%;
-    margin-bottom: -1px;
+input, input[type="date"]::placeholder {
+    padding: 25px;
 }
-.medic button{
-    background: linear-gradient(180deg, #16A085 -47.33%, rgba(22, 160, 133, 0.3) 209.33%);
-    border-radius: 0px 0px 18px 22px;
-    width: 100%;
-    height: 340%;
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    letter-spacing: 0.165em;
-    text-transform: uppercase;
-    cursor: pointer;
+select{
+    padding-left: 25px;
+}
+option{
+    border-radius: 0px 0px 10px 10px;
+}
+.label-form{
+    font-size: 18px;
+    padding-left: 12px;
 }
 
 
-
-/*----------- Card Patient --------------*/
-.patient{
-    width: 20em;
-    display: flex;
-    flex-direction: column;
+.input-form-wd{
+    width: 55rem;
+    height: 3.4rem;
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
-}
-.tx-pat{
-    color: #FF7723;
-}
-.patient img{
-    width: 55%;
-    margin-top: .5rem;
-    margin-left: 20%;
-    margin-bottom: -1px;
-}
-.patient button{
-    background: linear-gradient(180deg, #FF7723 -47.33%, rgba(255, 119, 35, 0.3) 209.33%);
-    border-radius: 0px 0px 18px 22px;
-    width: 100%;
-    height: 340%;
+    border-radius: 14px;
+    color: #FFF;
     border: none;
-    color: #fff;
-    font-weight: 600;
     font-size: 16px;
-    letter-spacing: 0.165em;
-    text-transform: uppercase;
-    cursor: pointer;
 }
-
-/*----------- Card Surgery --------------*/
-
-.surgery{
-    width: 20em;
-    height: 23rem;
-    display: flex;
-    flex-direction: column;
+.input-form{
+    width: 27rem;
+    height: 3.4rem;
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
-}
-.tx-sur{
-    color: #AC3483;
-}
-.surgery img{
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 1.5rem;
-    margin-bottom: -1px;
-}
-.surgery button{
-    background: linear-gradient(180deg, #AC3483 -47.33%, rgba(172, 52, 131, 0.3) 230%);    border-radius: 0px 0px 18px 22px;
-    width: 100%;
-    height: 340%;
+    border-radius: 14px;
+    color: #FFF;
     border: none;
-    color: #fff;
-    font-weight: 600;
     font-size: 16px;
-    letter-spacing: 0.165em;
-    text-transform: uppercase;
-    cursor: pointer;
 }
 
-/*----------- Card Room --------------*/
 
-.room{
-    width: 20em;
+
+
+.form-flex{
+    display: flex;
+    gap: 1rem;
+
+}
+.flex-content{
+    gap: 1rem;
     display: flex;
     flex-direction: column;
-    background: #2A2A2B;
-    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+    flex-wrap: wrap;
 }
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
-}
-.tx-rom{
-    color: #308ECC;
-}
-.room img{
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 2.2rem;
-    margin-bottom: -1px;
-}
-.room button{
-    background: linear-gradient(180.74deg, #308ECC -17.57%, rgba(48, 142, 204, 0.22) 224.02%);
-    border-radius: 0px 0px 18px 22px;
-    width: 100%;
-    height: 340%;
+
+
+.btn-submit{
+    width: 8.6rem;
+    height: 2.6rem;
+    background: #16A085;
+    border-radius: 9px;
     border: none;
-    color: #fff;
+    color: #FFFFFF;
     font-weight: 600;
-    font-size: 16px;
-    letter-spacing: 0.165em;
-    text-transform: uppercase;
+    background-image: url('../Components/SVG/Vector.svg');
+    background-repeat: no-repeat;
+    padding-right: 5%;
+    padding-left: 1%;
+    background-position: right 15% bottom 45%;
+    font-size: 1rem;
     cursor: pointer;
+}
+.btn-form{
+
+    margin-right: 11.5%;
 }
