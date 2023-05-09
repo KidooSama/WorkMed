@@ -69,20 +69,20 @@ body{
 }
 
  .text{
-    font-size: 22px;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 1;
-    margin-left: 1rem;
-    color: #AC3483;
-}
-.text2{
     font-size: 20px;
     font-weight: 400;
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
-    color: #FFF;
+    color:#fff;
+}
+.text2{
+    font-size: 22px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 1;
+    margin-left: 1rem;
+    color: #FF7723;
 }
 .text3{
     font-size: 20px;
@@ -282,6 +282,14 @@ body{
     color: #FFF;
 
 }
+.text-h3{
+    margin-left: 0rem;
+    margin-top: 1rem;
+    font-weight: 200;
+    font-size: 22px;
+    color: #FFF;
+
+}
 .banner{
     margin-left: 40%;
     margin-top: 4%;
@@ -386,3 +394,87 @@ option{
 
     margin-right: 11.5%;
 }
+
+.procedure-flex{
+    display: flex;
+    gap: 2.5rem;
+}
+.surgery-type{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 26.5rem;
+    background: #2A2A2B;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.medic-choose{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 26.5rem;
+    background: #2A2A2B;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.sele-doc{
+    background: #3D3D3D;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    border: none;
+    height: 3.4rem;
+    color: #FFF;
+    font-size: 16px;
+}
+.gastos{
+    margin-bottom: 2rem;
+    background: #3D3D3D;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    border: none;
+    height: 3.4rem;
+    color: #FFF;
+    font-size: 16px;
+}
+.tx{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.tx-proc{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.check-proc{
+    margin-left: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.checkbox{
+    width: 10rem;
+    display: flex;
+    align-items: center;
+}
+/* estilo para o checkbox */
+input[type="checkbox"] {
+    position: relative;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+  }
+  
+  /* estilo para a marcação do checkbox */
+  input[type="checkbox"]::before {
+
+  }
+  
+  /* estilo para o checkbox quando está marcado */
+  input[type="checkbox"]:checked::before {
+    
+  }
+  

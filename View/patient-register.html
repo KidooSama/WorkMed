@@ -28,6 +28,9 @@
 
         <div class="menu-bar">
             <div class="menu">
+
+                 <!-- --------------- Ícones Menu Sidebar --------------- -->
+
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="./main.html" class="dashboard">
@@ -55,10 +58,15 @@
                     </li>
 
                 </ul>
-            </div>
+
+                 <!-- --------------- Ícones Menu Sidebar --------------- -->
+            
+                </div>
 
         </div>
     </nav>
+
+     <!-- --------------- Conteudo Principal --------------- -->
 
     <section class="home">
         <div class="title">
@@ -67,6 +75,7 @@
         </div>
         <div class="text-h2">Pacientes</div>
 
+        <!-- --------------- InputFields --------------- -->
         <div class="content-form">
                 <form method="POST" action="#" class="form">
                     <div class="flex-content">
@@ -115,28 +124,54 @@
                         <label class="label-form"   for="endereco">Historico Médico <span>*</span></label>
                         <input type="text" name="endereco" id="endereco" required placeholder="Ex.: Rua São Paulo, 986" class="input-form-wd">
                     </div>
-                    <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>
+                    
 
-                    <div class="text-h2">Pacientes</div>
+                    <div class="text-h3">Procedimento</div>
 
-                    <div class="form-flex">
-                        <div class="procedure-1">
+                    <div class="procedure-flex">
+
+                        <div class="medic-choose">
+
+                            <div class="flex-content">
+                                <label class="tx" >Médico Responsável</label>
+                                <select name="" id="" class="sele-doc">
+                                    <option value="">Escolha o Médico</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="flex-content">
+                                <label class="tx">Total Gasto</label>
+                                <input type="text" name="" id="" placeholder="Ex: 258,43" class="gastos">
+                            </div>
 
                         </div>
-                        <div class="procedure-2">
+
+                        <div class="surgery-type">
+                            <label class="tx-proc">Tipo de Cirurgia</label>
                             
+                            <div class="check-proc">
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Urologica</label></div>
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">oftalmológicas</label></div>
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">neurológicas</label></div>
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">ortopédicas</label></div>
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Cardíacas</label></div>
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Gastrointestinais</label></div>
+                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Plásticas</label></div>
+                            </div>
                         </div>
 
                     </div>
 
+
+                    <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>
                   </form>
                   
         </div>
 
     </section>
 
-
-
+    <!-- --------------- Sscript do menu Sidebar --------------- -->
 
     <script>
             
