@@ -155,15 +155,29 @@ body{
 .sidebar.close .bx{
     line-height: 0px!important;
 }
+.dashboard{
+    filter: saturate(0%);
+}
+.dashboard:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04) ;
+}
+
+ .register{
+    filter: saturate(0%);
+}
+.register:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04) ;
+} 
 
 .logout {
     filter: saturate(0%);
-   }
-   .logout:hover{
+}
+.logout:hover{
        filter: saturate(100%);
        transition:var(--tran-04) ;
-   }
-
+}
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
 }
