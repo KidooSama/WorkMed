@@ -33,56 +33,21 @@ body{
     background-color: var(--primary-color);
     color: #fff;
 }
-
-/* ===== Sidebar ===== */
- .sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 18rem;
-    padding: 10px 14px;
-    background: #242424;
-    transition: var(--tran-05);
-    z-index: 100;  
-    box-shadow: -2px 4px 55px 9px rgba(0, 0, 0, 0.25);
-    border-radius: 1px 42px 42px 1px;
-
-    }
-.sidebar.close{
-    width: 10rem;
-}
-
-/* ===== Reusable code - Here ===== */
-.sidebar.close li{
-    width: 8rem;
-
-}
-.sidebar li{
-    padding-left: 2.5rem;
-    width: 100%;
-    height: 3rem;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
  .text{
-    font-size: 20px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 1;
-    margin-left: 1rem;
-    color: #FFF;
+    font-size: 20px!important;
+    font-weight: 400!important;
+    white-space: nowrap!important;
+    
+    margin-left: 1rem!important;
+    color: #FFF!important;
 }
-.text2{
-    font-size: 22px;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 1;
-    margin-left: 1rem;
-    color: #AC3483;
+.text2 {
+    font-size: 22px!important;
+    font-weight: 600!important;
+    white-space: nowrap!important;
+ 
+    margin-left: 1rem!important;
+    color: #AC3483  !important;
 }
 .text3{
     font-size: 20px;
@@ -100,61 +65,33 @@ body{
     margin-left: 1rem;
     color: #FFF;
 }
-.sidebar.close .text{
-    opacity: 0;
-}
-.sidebar.close .text2{
-    opacity: 0;
-}
-.sidebar.close .text3{
-    opacity: 0;
-}
-.sidebar.close .text4{      
-    opacity: 0;
-}
 
 
 /* =========================== */
 
-.sidebar header{
-    position: relative;
+.dashboard{
+    filter: saturate(0%);
 }
-.sidebar header .image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sidebar header .image img{
-    width: 12rem;
-    border-radius: 6px;
-    margin-left: -1rem;
+.dashboard:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04) ;
 }
 
-.sidebar header .toggle{
-    position: absolute;
-    top: 50%;
-    right: -25px;
-    transform: translateY(-50%) rotate(180deg);
-    height: 25px;
-    width: 25px;
-    background-color: #AC3483;
-    color: var(--sidebar-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    cursor: pointer;
-    transition: var(--tran-05);
+.register{
+    
 }
-.bx{
-    line-height: 0px!important;
-    color: #fff;
+.register:hover{
+
+} 
+
+.list{
+    filter: saturate(0%);
 }
-.sidebar.close .bx{
-    line-height: 0px!important;
+.list:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04) ;
 }
+
 .logout {
     filter: saturate(0%);
 }
@@ -255,27 +192,32 @@ body{
 }
 .banner{
     margin-left: 40%;
-    margin-top: 4%;
+    margin-top: 2%;
+}
+.banner img{
+    width: 47%;
 }
 .content{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 4rem;
+    margin-top: 1.5%;
     margin-left: 12rem;
-    gap: 6rem;
+    gap: 3rem;
 
 }
 
 /* Card Medic */
 .medic{
-    width: 20em;
+    width: 21%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-.tx-standard{
+.tx-standard{ 
+    display: block;
     margin: 10% 0% 10% 12%;
     color: #fff;
     font-weight: 300;
@@ -294,7 +236,7 @@ body{
     background: linear-gradient(180deg, #16A085 -47.33%, rgba(22, 160, 133, 0.3) 209.33%);
     border-radius: 0px 0px 18px 22px;
     width: 100%;
-    height: 340%;
+    padding: 20px;
     border: none;
     color: #fff;
     font-weight: 600;
@@ -308,34 +250,28 @@ body{
 
 /*----------- Card Patient --------------*/
 .patient{
-    width: 20em;
-    display: flex;
+    width: 21%;
+    height: 50%;
     flex-direction: column;
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
-}
+
 .tx-pat{
     color: #FF7723;
 }
 .patient img{
     width: 55%;
-    margin-top: .5rem;
+    margin-top: 3%;
     margin-left: 20%;
-    margin-bottom: -1px;
+    margin-bottom: -5px;
 }
 .patient button{
     background: linear-gradient(180deg, #FF7723 -47.33%, rgba(255, 119, 35, 0.3) 209.33%);
     border-radius: 0px 0px 18px 22px;
     width: 100%;
-    height: 340%;
+    padding: 20px;
     border: none;
     color: #fff;
     font-weight: 600;
@@ -348,34 +284,28 @@ body{
 /*----------- Card Surgery --------------*/
 
 .surgery{
-    width: 20em;
-    height: 23rem;
+    width: 21%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
-}
+
 .tx-sur{
     color: #AC3483;
 }
 .surgery img{
     width: 60%;
     margin-left: 20%;
-    margin-top: 1.5rem;
+    margin-top: 7%;
     margin-bottom: -1px;
 }
 .surgery button{
     background: linear-gradient(180deg, #AC3483 -47.33%, rgba(172, 52, 131, 0.3) 230%);    border-radius: 0px 0px 18px 22px;
     width: 100%;
-    height: 340%;
+    padding: 20px;
     border: none;
     color: #fff;
     font-weight: 600;
@@ -388,19 +318,12 @@ body{
 /*----------- Card Room --------------*/
 
 .room{
-    width: 20em;
-    display: flex;
+    width: 21%;
+    height: 50%;
     flex-direction: column;
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-}
-.tx-standard{
-    margin: 10% 0% 10% 12%;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    width: 20px;
 }
 .tx-rom{
     color: #308ECC;
@@ -408,14 +331,14 @@ body{
 .room img{
     width: 60%;
     margin-left: 20%;
-    margin-top: 2.2rem;
-    margin-bottom: -1px;
+    margin-top: 11%;
+    margin-bottom: -5px;
 }
 .room button{
     background: linear-gradient(180.74deg, #308ECC -17.57%, rgba(48, 142, 204, 0.22) 224.02%);
     border-radius: 0px 0px 18px 22px;
     width: 100%;
-    height: 340%;
+    padding: 20px;
     border: none;
     color: #fff;
     font-weight: 600;

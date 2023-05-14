@@ -17,58 +17,9 @@
 
     <!-- --------------- Menu Sidebar --------------- -->
 
-    <nav class="sidebar close">
-
-        <!-- --------------- Ítens Menu Sidebar --------------- -->
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <a href="#"><img src="../Components/IMG/log.png" alt=""></a>
-                </span>
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-                
-                <!-- --------------- Ícones Menu Sidebar --------------- -->
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="./main.html" class="dashboard">
-                            <img src="../Components/SIDEBAR/graph.svg" class="logout">
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="./select-register.html" class="register">
-                            <img src="../Components/SIDEBAR/addsquare-medic.svg">
-                            <span class="text2 nav-text">Cadastro</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="./select-list.html" class="list">
-                            <img src="../Components/SIDEBAR/layer-standard.svg" class="logout">
-                            <span class="text3 nav-list">Listagem</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="./login.html" class="logout">
-                            <img src="../Components/SIDEBAR/logout.svg" >
-                            <span class="text4 nav-text">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- --------------- Ícones Menu Sidebar --------------- -->
-
-            </div>
-        </div>
-    </nav>
+    <?php
+        include ('./sidebar.html')
+   ?>
 
     <!-- --------------- Conteudo Principal --------------- -->
 
@@ -81,7 +32,7 @@
 
         <div class="content-form">
 
-    <!-- --------------- InputFields --------------- -->
+            <!-- --------------- InputFields --------------- -->
 
                 <form method="POST" action="#" class="form">
 
@@ -122,7 +73,7 @@
 
                         <div class="flex-content">
                             <label class="label-form" for="crm">CRM <span>*</span></label>
-                            <input type="text" name="crm" oninput="formatar_crm(this)"  maxlength="11" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
+                            <input type="text" name="crm" oninput="formatar_crm(this)"  maxlength="9" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
                         </div>
 
                         <div class="flex-content">

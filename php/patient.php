@@ -6,7 +6,6 @@ class Patient extends Person{
     protected $expenses;
     protected $type_surgery;
     protected $doctor;
-    protected $post_surgery_statuses;
     protected $insurance;
 
     public function setDateSurgery($dts){
@@ -23,9 +22,6 @@ class Patient extends Person{
     }
     public function setDoctor($dct){
         $this->doctor = $dct;
-    }
-    public function setPostSurgeryStatuses($pss){
-        $this->post_surgery_statuses = $pss;
     }
     public function setInsurance($ins){
         $this->insurance = $ins;
@@ -46,9 +42,6 @@ class Patient extends Person{
     }
     public function getDoctor(){
         return $this->doctor;
-    }
-    public function getPostSurgeryStatuses(){
-        return $this->post_surgery_statuses;
     }
     public function getInsurance(){
         return $this->insurance;
