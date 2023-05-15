@@ -1,4 +1,4 @@
-<?
+<?php
 
 class Superuser{
     private $user;

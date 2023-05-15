@@ -52,6 +52,12 @@ body{
 .sidebar.close{
     width: 10rem;
 }
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin-bottom: 10rem;
+}
 
 /* ===== Reusable code - Here ===== */
 .sidebar.close li{
@@ -65,7 +71,7 @@ body{
     list-style: none;
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 9%;
 }
 
  .text{
@@ -157,23 +163,45 @@ body{
     line-height: 0px!important;
 }
 
+.dashboard{
+    filter: saturate(0%);
+}
+.dashboard:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04);
+}
+
+.register{
+    filter: saturate(0%);
+}
+.register:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04);
+} 
+
+.list{
+    filter: saturate(0%);
+}
+.list:hover{
+    filter: saturate(100%);
+    transition:var(--tran-04);
+}
+
 .logout {
     filter: saturate(0%);
 }
 
 .logout:hover{
-       filter: saturate(100%);
-       transition:var(--tran-04) ;
-       color: #AC3483;
+    filter: saturate(100%);
+    transition:var(--tran-04);
 }
 
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
 }
 
-.sidebar .menu{
-    margin-top: 8rem;
-
+.sidebar .menu {
+    margin-top: 5rem;
 }
 .image{
     padding-left: 4rem;
@@ -188,7 +216,6 @@ body{
 
 .sidebar li a{
     list-style: none;
-    height: 100%;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -210,7 +237,9 @@ body{
 .menu-bar::-webkit-scrollbar{
     display: none;
 }
-
+body::-webkit-scrollbar{
+    display: none;
+}
 
 
 /* Conteudo que vai dentro do site */

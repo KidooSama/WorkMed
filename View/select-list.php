@@ -33,7 +33,7 @@
             <div class="medic">
                 <span class="tx-standard">Listar <span class="tx-med">Médico</span></span>
                 <img src="../Components/SVG/medic-list.svg" alt="">
-                <a href="#"><button>Ver</button></a>
+                <a href="./medic-list.php"><button>Ver</button></a>
             </div>
             <div class="patient">
                 <span class="tx-standard">Listar <span class="tx-pat">Paciente</span></span>

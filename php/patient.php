@@ -1,4 +1,4 @@
-<?
+<?php
 require_once "person.php";
 class Patient extends Person{
     protected $date_surgery;

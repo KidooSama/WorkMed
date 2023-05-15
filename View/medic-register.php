@@ -14,7 +14,7 @@
 
 </head>
 <body>
-
+    
     <!-- --------------- Menu Sidebar --------------- -->
 
     <?php
@@ -34,7 +34,7 @@
 
             <!-- --------------- InputFields --------------- -->
 
-                <form method="POST" action="#" class="form">
+                <form method="POST" action="../php/PostArchives.php" class="form">
 
                     <div class="flex-content">
                         <label for="nome" class="label-form">Nome Completo <span>*</span></label>
@@ -135,18 +135,7 @@
 
         e.target.value = cpf;
         });
-                const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-        toggle.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-        })
-        searchBtn.addEventListener("click" , () =>{
-            sidebar.classList.remove("close");
-        })
+            
 
     </script>
 

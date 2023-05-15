@@ -33,22 +33,22 @@
             <div class="medic">
                 <span class="tx-standard">Cadastrar <span class="tx-med">Médico</span></span>
                 <img src="../Components/SVG/medic-list.svg" alt="">
-                <a href="./medic-register.html"><button>Começar</button></a>
+                <a href="./medic-register.php"><button>Começar</button></a>
             </div>
             <div class="patient">
                 <span class="tx-standard">Cadastrar <span class="tx-pat">Paciente</span></span>
                 <img src="../Components/SVG/patient.svg" alt="">
-                <a href="./patient-register.html"><button>Começar</button></a>
+                <a href="./patient-register.php"><button>Começar</button></a>
             </div>
             <div class="surgery">
                 <span class="tx-standard">Cadastrar <span class="tx-sur">Cirurgia</span></span>
                 <img src="../Components/SVG/surgery.svg" alt="">
-                <a href="surgery-register.html"><button>Começar</button></a>
+                <a href="surgery-register.php"><button>Começar</button></a>
             </div>
             <div class="room">
                 <span class="tx-standard">Cadastrar <span class="tx-rom">Salas</span></span>
                 <img src="../Components/SVG/room.svg" alt="">
-                <a href="room-register.html"><button type="button">Começar</button></a>
+                <a href="room-register.php"><button type="button">Começar</button></a>
             </div>
 
         </div>
