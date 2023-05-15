@@ -14,9 +14,6 @@ class MedicDAO {
         $stmt->bindValue(6, $doctor->getCpf());
         $stmt->bindValue(7, $doctor->getDate());
         $stmt->bindValue(8, $doctor->getAdr());
-        
-        
-
         $stmt->execute();
     }
 
