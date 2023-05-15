@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <link rel="icon" type="image/x-icon" href="../Components/SVG/favicon-16x16.png">
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Dashboard</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/medic-register.css'>
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<?php
+    // Recebendo o id via GET
+    $id = $_GET['id'];
+    
+    // Aqui você pode fazer uma consulta ao banco de dados ou acessar o objeto que contém os dados do médico com o id recebido
+    // Suponha que esteja acessando um objeto $doctor com as informações do médico
 
-</head>
+    // Verificando se o formulário foi submetido
+    if (isset($_POST['submit'])) {
+        // Aqui você pode pegar os dados do formulário e atualizar os dados do médico com o id recebido
+        // Depois de atualizar, você pode redirecionar para a página de listagem de médicos
+        header("Location: ./medic-list.php");
+        exit();
+    }
+?>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel="icon" type="image/x-icon" href="../Components/SVG/favicon-16x16.png">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Dashboard</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='../css/medic-register.css'>
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
 <body>
     
     <!-- --------------- Menu Sidebar --------------- -->
@@ -26,7 +41,7 @@
     <section class="home">
         <div class="title">
             <div class="stick"></div>
-            <div class="text-menu">Cadastro</div>
+            <div class="text-menu">Editar</div>
         </div>
         <div class="text-h2">Médico</div>
 
@@ -38,7 +53,7 @@
 
                     <div class="flex-content">
                         <label for="nome" class="label-form">Nome Completo <span>*</span></label>
-                        <input type="text" name="nome" id="nome" required placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
+                        <input  type="text" name="nome" id="nome" required  placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
                     </div>
 
                     <div class="form-flex">

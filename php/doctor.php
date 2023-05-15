@@ -13,6 +13,7 @@ class Doctor extends Person{
         $this->adr = $adr;
         $this->speciality = $speciality;
         $this->crm = $crm;
+        // $this->id = $id;
     }
     
     public function setSpeciality($spe){

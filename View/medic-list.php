@@ -43,27 +43,37 @@
                 <form method="get" action="../php/PostArchives.php" class="form">
 
                     <details class="list-form">
-                        <summary><?= $doctor->getName() ?> <button class="delete-btn">Excluir</button></summary>                       
+                        <summary><?= $doctor->getName() ?></summary>                       
                         <div class="list-flex">
                             <div class="dados">
-                                <h1><?= $doctor->getName() ?></h1>
+                                <h1>Dados Pessoais</h1>
+                                <p><?= $doctor->getName() ?></p>
+                                <p><?= $doctor->getGen() ?></p>
                                 <p><?= $doctor->getCpf() ?></p>
                                 <p><?= $doctor->getDate() ?></p>
                                 <p><?= $doctor->getAdr() ?></p>
+                                
                             </div>
                             <div class="especs">
-                                <h1><?= $doctor->getSpeciality() ?></h1>
+                                <h1>Especificações</h1>
+                                <p><?= $doctor->getSpeciality() ?></p>
                                 <p><?= $doctor->getCrm() ?></p>
                                 <p><?= $doctor->getNum() ?></p>
-                                <p><?= $doctor->getGen() ?></p>
+                                
                             </div>
                         </div>
+                    </form>
                     </details>
                     
-                </form>
-
-            <?php 
+                <div class="btn-action">
+                    <a href="./medic-update.php?id=<?= $doctor->getId() ?>"><button class="delete-btn">Editar</button></a>
+                    <a href="../php/deleteMedic.php?id=<?= $doctor->getId() ?>"><button class="delete-btn">Excluir</button></a>
+                </div>
+                
+            <?php
+            
               } 
+
             ?>
 
         </div>

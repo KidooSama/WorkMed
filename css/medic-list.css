@@ -65,10 +65,7 @@
     color: #FFF;
 
 }
-.banner{
-    margin-left: 40%;
-    margin-top: 4%;
-}
+
 .content{
     display: flex;
     flex-wrap: wrap;
@@ -86,6 +83,8 @@
     align-items: center;
     flex-direction: column;
     margin-top: 5%;
+    margin-left: 9rem;
+    width: 90%;
 }
 .form{
     display: flex;
@@ -120,7 +119,7 @@ option{
     border-radius: 13px;
     padding: 1.2rem;
     transition: transform 0.2s ease-in-out;
-    cursor: pointer;
+
 }
   
 
@@ -140,8 +139,6 @@ option{
     
     
   }
-  
-summary{
-     
-}
-
+  summary{
+    cursor: pointer;
+  }
