@@ -24,6 +24,9 @@
             <div class="text-menu">Dashboard</div>
         </div>
         <div class="text-h2">Seja bem vinda, User.</div>
+        <div class="banner">
+            <img src="../Components/SVG/main 2.svg" alt="">
+        </div>
 
 
     </section>

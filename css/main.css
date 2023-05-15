@@ -72,8 +72,12 @@
 
 }
 .banner{
-    margin-left: 40%;
+    width: 80%;
+    margin-left:30%;
     margin-top: 4%;
+}
+.banner img{
+    width: 50%;
 }
 .content{
     display: flex;
