@@ -15,6 +15,7 @@ class MedicDAO {
         $stmt->bindValue(7, $doctor->getDate());
         $stmt->bindValue(8, $doctor->getAdr());
         $stmt->execute();
+        $doctor->setId(Conexao::getConn()->lastInsertId());
     }
 
     public function read(){
@@ -48,18 +49,18 @@ class MedicDAO {
     $stmt->execute();
 }
 
-public function getById($id) {
-    $sql = 'SELECT * FROM doctor WHERE id=?';
-    $stmt = Conexao::getConn()->prepare($sql);
-    $stmt->bindValue(1, $id);
-    $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($result) {
-        return new Doctor($result['name'], $result['speciality'], $result['gender'], $result['crm'], $result['number'], $result['cpf'], $result['date'], $result['adress']);
-    } else {
-        return null;
-    }
-}
+// public function getById($id) {
+//     $sql = 'SELECT * FROM doctor WHERE id=?';
+//     $stmt = Conexao::getConn()->prepare($sql);
+//     $stmt->bindValue(1, $id);
+//     $stmt->execute();
+//     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+//     if ($result) {
+//         return new Doctor($result['name'], $result['speciality'], $result['gender'], $result['crm'], $result['number'], $result['cpf'], $result['date'], $result['adress']);
+//     } else {
+//         return null;
+//     }
+// }
 
 
     public function delete($id) {

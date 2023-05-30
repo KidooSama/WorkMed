@@ -34,16 +34,16 @@
 
     <!-- --------------- InputFields --------------- -->
 
-                <form method="POST" action="#" class="form">
+                <form method="POST" action="../php/PostSurgery.php" class="form">
 
                     <div class="flex-content">
                         <label for="nome" class="label-form">Nome do Tipo de Cirurgia <span>*</span></label>
-                        <input type="text" name="nome" id="nome" required placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
+                        <input type="text" name="nome" id="nome" required placeholder="Ex.: Urologia" class="input-form-wd">
                     </div>
 
                     <div class="flex-content">
-                        <label class="label-form"   for="endereco">Descrição <span>*</span></label>
-                        <textarea type="text" name="endereco" id="endereco" required placeholder="Ex.: Ex.: Urologia é uma especialidade cirúrgica da medicina que trata do trato urinário de homens e..." class="input-form-wd"></textarea>
+                        <label class="label-form"   for="descricao">Descrição <span>*</span></label>
+                        <textarea type="text" name="descricao" id="descricao" required placeholder="Ex.: Ex.: Urologia é uma especialidade cirúrgica da medicina que trata do trato urinário de homens e..." class="input-form-wd"></textarea>
                     </div>
 
                     <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>

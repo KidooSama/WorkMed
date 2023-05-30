@@ -1,23 +1,37 @@
 <?php
 
-class Surgery{
+class Surgery {
+    protected $id;
     protected $name;
     protected $description;
-    public function setName($name){
+    
+    public function __construct( $name, $description) {
         $this->name = $name;
-       }
-    public function setCrm($desc){
-        $this->description = $desc;
-       }
-    public function getName(){
+        $this->description = $description;
+    }
+    
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function setName($name) {
+        $this->name = $name;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+    
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+    
+    public function getDescription() {
         return $this->description;
-       }
-    public function getDescription(){
-        return $this->description;
-       }
+    }
 }
-
-
-
-
 ?>
