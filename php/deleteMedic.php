@@ -1,5 +1,5 @@
 <?php
-require_once('MedicDao.php');
+require_once('medicDao.php');
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];

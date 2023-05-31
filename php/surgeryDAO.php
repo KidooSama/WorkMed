@@ -26,7 +26,7 @@ class SurgeryDAO {
                 $surgerys[] = $surgery;
             }
         }else {
-            echo '<img src="../Components/SVG/nodata.svg" alt="Sem itens na lista">';
+            // echo '<img src="../Components/SVG/nodata.svg" alt="Sem itens na lista">';
             echo '<p>Não há itens na lista.</p>';
         }
         return $surgerys;

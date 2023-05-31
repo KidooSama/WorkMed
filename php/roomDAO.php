@@ -28,7 +28,7 @@ class RoomDAO {
                 $rooms[] = $room;
             }
         }else {
-            echo '<img src="../Components/SVG/nodata.svg" class="img-bnr" alt="Sem itens na lista">';
+            // echo '<img src="../Components/SVG/nodata.svg" class="img-bnr" alt="Sem itens na lista">';
             echo '<p>Não há itens na lista.</p>';
         }
         return $rooms;

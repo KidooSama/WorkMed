@@ -48,7 +48,7 @@
             <div class="room">
                 <span class="tx-standard">Listar <span class="tx-rom">Salas</span></span>
                 <img src="../Components/SVG/room.svg" alt="">
-                <a href="#"><button type="button">Ver</button></a>
+                <a href="./room-list.php"><button type="button">Ver</button></a>
             </div>
 
         </div>

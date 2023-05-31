@@ -58,7 +58,7 @@
                             <div class="check-proc">
                                 <?php foreach ($surgeryNames as $name) { ?>
                                     <div class="checkbox">
-                                        <input type="radio" value="<?= $name ?>" name="surgery[]" id="<?= $name ?>">
+                                        <input type="checkbox" value="<?= $name ?>" name="surgery[]" id="<?= $name ?>">
                                         <label for="<?= $name ?>"><?= $name ?></label>
                                     </div>
                                 <?php } ?>
