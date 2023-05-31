@@ -13,10 +13,10 @@ class Conexao {
     }
 }
 
-try {
-    $conn = Conexao::getConn();
-    echo "Conexão estabelecida com sucesso!";
-  } catch (PDOException $e) {
-    echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
-  }
+// try {
+//     $conn = Conexao::getConn();
+//     echo "Conexão estabelecida com sucesso!";
+//   } catch (PDOException $e) {
+//     echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
+//   }
   

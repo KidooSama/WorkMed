@@ -43,7 +43,7 @@
             <div class="surgery">
                 <span class="tx-standard">Listar <span class="tx-sur">Cirurgia</span></span>
                 <img src="../Components/SVG/surgery.svg" alt="">
-                <a href="#"><button>Ver</button></a>
+                <a href="./surgery-list.php"><button>Ver</button></a>
             </div>
             <div class="room">
                 <span class="tx-standard">Listar <span class="tx-rom">Salas</span></span>

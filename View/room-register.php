@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+    require_once '../php/surgeryDao.php';
+    $surgeryDAO = new SurgeryDAO();
+    $surgeryNames = $surgeryDAO->SurgeryNames();
+?>
 <html>
 <head>
     <meta charset='utf-8'>
@@ -52,13 +57,12 @@
                             <label class="tx-proc">Tipo de Cirurgia</label>
                             
                             <div class="check-proc">
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Urologica</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">oftalmológicas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">neurológicas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">ortopédicas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Cardíacas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Gastrointestinais</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Plásticas</label></div>
+                                <?php foreach ($surgeryNames as $name) { ?>
+                                    <div class="checkbox">
+                                        <input type="checkbox" name="surgery[]" id="<?= $name ?>">
+                                        <label for="<?= $name ?>"><?= $name ?></label>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
 

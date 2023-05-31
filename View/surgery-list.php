@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-    require_once '../php/MedicDao.php';
-    $medicDAO = new MedicDAO();
-    $doctors = $medicDAO->read();
+    require_once '../php/surgeryDao.php';
+    $surgeryDAO = new SurgeryDAO();
+    $surgerys = $surgeryDAO->read();
 ?>
 <html>
 <head>
@@ -33,42 +33,35 @@
             <div class="stick"></div>
             <div class="text-menu">Listagem</div>
         </div>
-        <div class="text-h2">Médico</div>
+        <div class="text-h2">Cirurgias</div>
 
         <div class="content-form">
 
             <!-- --------------- InputFields --------------- -->
 
-            <?php foreach ($doctors as $doctor) { ?>
-                <form method="get" action="../php/PostArchives.php" class="form">
+            <?php 
+                    
+            foreach ($surgerys as $surgery) { ?>
+                <form method="get" action="../php/PostSurgery.php" class="form">
 
                     <details class="list-form">
-                        <summary><?= $doctor->getName() ?></summary>                       
+                        <summary><?= $surgery->getName() ?></summary>                       
                         <div class="list-flex">
                             <div class="dados">
-                                <h1>Dados Pessoais</h1>
-                                <p><?= $doctor->getName() ?></p>
-                                <p><?= $doctor->getGen() ?></p>
-                                <p><?= $doctor->getCpf() ?></p>
-                                <p><?= $doctor->getDate() ?></p>
-                                <p><?= $doctor->getAdr() ?></p>
-                                
+                                <h1>Informações</h1>
+                                <p><?= $surgery->getName() ?></p>
+                                                                
                             </div>
                             <div class="especs">
-                                <h1>Especificações</h1>
-                                <p><?= $doctor->getSpeciality() ?></p>
-                                <p><?= $doctor->getCrm() ?></p>
-                                <p><?= $doctor->getNum() ?></p>
-                               
-                                
-                                
+                                <h1>Descrição</h1>
+                                <p><?= $surgery->getDescription() ?></p>                             
                             </div>
                         </div>
                     </details>
                     </form>
                     <div class="btn-action">
-                        <a href="./medic-update.php?id=<?= $doctor->getId() ?>"><button class="delete-btn">Editar</button></a>
-                        <a href="../php/deleteMedic.php?id=<?= $doctor->getId() ?>"><button class="delete-btn">Excluir</button></a>
+                        <a href="./surgery-update.php?id=<?= $surgery->getId() ?>"><button class="delete-btn">Editar</button></a>
+                        <a href="../php/deleteSurgery.php?id=<?= $surgery->getId() ?>"><button class="delete-btn">Excluir</button></a>
                     </div>
                     
                     
