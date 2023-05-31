@@ -36,30 +36,29 @@
 
         <!-- --------------- InputFields --------------- -->
         <div class="content-form">
-                <form method="POST" action="#" class="form">
+                <form method="POST" action="../php/PostRoom.php" class="form">
 
                     <div class="procedure-flex">
 
                         <div class="room-choose">
 
                             <div class="flex-content">
-                                <label class="tx" >Nome da Sala <span>*</span></label>
-                                <input name="" id="" class="name" placeholder="Ex.: Sala 1 ">
+                                <label class="tx"  for="name" >Nome da Sala <span>*</span></label>
+                                <input name="name" id="" class="name" placeholder="Ex.: Sala 1 ">
                             </div>
                             <div class="flex-content">
                                 <label class="tx">Localidade da Sala <span>*</span></label>
-                                <input type="text" name="" id="" placeholder="Ex.: 2° Corredor, 3° Andar" class="locate">
+                                <input type="text" name="location" id="" placeholder="Ex.: 2° Corredor, 3° Andar" class="locate">
                             </div>
 
                         </div>
 
                         <div class="surgery-type">
                             <label class="tx-proc">Tipo de Cirurgia</label>
-                            
                             <div class="check-proc">
                                 <?php foreach ($surgeryNames as $name) { ?>
                                     <div class="checkbox">
-                                        <input type="checkbox" name="surgery[]" id="<?= $name ?>">
+                                        <input type="radio" value="<?= $name ?>" name="surgery[]" id="<?= $name ?>">
                                         <label for="<?= $name ?>"><?= $name ?></label>
                                     </div>
                                 <?php } ?>
@@ -69,8 +68,8 @@
                     </div>
                     
                     <div class="flex-content">
-                        <label class="label-form"   for="endereco">Descrição <span>*</span></label>
-                        <textarea type="text" name="endereco" id="endereco" required placeholder="Ex.: Sala número 2, utilizada para procedimentos cardíacos e pediátrico." class="input-form-wd"></textarea>
+                        <label class="label-form"   for="description">Descrição <span>*</span></label>
+                        <textarea type="text" name="description" id="description" required placeholder="Ex.: Sala número 2, utilizada para procedimentos cardíacos e pediátrico." class="input-form-wd"></textarea>
                     </div>
 
                     <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>

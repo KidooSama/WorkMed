@@ -38,7 +38,7 @@
             <div class="patient">
                 <span class="tx-standard">Listar <span class="tx-pat">Paciente</span></span>
                 <img src="../Components/SVG/patient.svg" alt="">
-                <a href="patient-register.html"><button>Ver</button></a>
+                <a href="patient-list.php"><button>Ver</button></a>
             </div>
             <div class="surgery">
                 <span class="tx-standard">Listar <span class="tx-sur">Cirurgia</span></span>

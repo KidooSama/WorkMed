@@ -20,22 +20,19 @@ class MedicDAO {
     }
 
     public function read(){
-        $sql = 'SELECT * FROM surgery';
+        $sql = 'SELECT * FROM doctor';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
-        $surgerys = [];
+        $doctors = [];
         if($stmt->rowCount() > 0){
             $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
-                $surgery = new Surgery($row['name'],$row['description']);
-                $surgery->setId($row['id']);
-                $surgerys[] = $surgery;
+                $doctor = new Doctor($row['name'],$row['speciality'],$row['gender'],$row['crm'], $row['number'], $row['cpf'], $row['date'], $row['adress'] );
+                $doctor->setId($row['id']);
+                $doctors[] = $doctor;
             }
-        }else {
-            echo '<img src="../Components/SVG/nodata.svg" alt="Sem itens na lista">';
-            echo '<p>Não há itens na lista.</p>';
         }
-        return $surgerys;
+        return $doctors;
     }
     
 
