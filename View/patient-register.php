@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+    require_once '../php/patientDao.php';
+    $surgeryDAO = new PatientDAO();
+    $surgeryNames = $surgeryDAO->SurgeryNames();
+
+    $doctorNames = $surgeryDAO->DoctorNames();
+
+?>
 <html>
 <head>
     <meta charset='utf-8'>
@@ -30,7 +38,7 @@
 
         <!-- --------------- InputFields --------------- -->
         <div class="content-form">
-                <form method="POST" action="#" class="form">
+                <form method="POST" action="../php/PostPatient.php" class="form">
                     <div class="flex-content">
                         <label for="nome" class="label-form">Nome Completo do Paciente <span>*</span></label>
                         <input type="text" name="nome" id="nome" required placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
@@ -69,13 +77,23 @@
                             <input type="text" name="endereco" id="endereco" required placeholder="Ex.: Rua São Paulo, 986" class="input-form">
                         </div>
                         <div class="flex-content">
-                            <label class="label-form" for="data_nascimento">Data da Cirurgia <span>*</span></label>
-                            <input type="date" name="data_nascimento" id="data_nascimento" required placeholder="Ex.: 25/07/1986" class="input-form">
+                            <label class="label-form" for="data_cirurgia">Data da Cirurgia <span>*</span></label>
+                            <input type="date" name="data_cirurgia" id="data_cirurgia" required placeholder="Ex.: 25/07/1986" class="input-form">
                         </div>
                     </div>
-                    <div class="flex-content">
-                        <label class="label-form"   for="endereco">Historico Médico <span>*</span></label>
-                        <input type="text" name="endereco" id="endereco" required placeholder="Ex.: Rua São Paulo, 986" class="input-form-wd">
+                    <div class="form-flex">
+                        <div class="flex-content">
+                            <label class="label-form"   for="historico">Historico Médico <span>*</span></label>
+                            <input type="text" name="hitorico" id="historico" required placeholder="Ex.: Diabetes, Pressão alta..." class="input-form">
+                        </div>
+                        <div class="flex-content">
+                        <label class="label-form" for="convenio">Convênio <span>*</span></label>
+                            <select name="convenio" id="convenio" required class="input-form">
+                                <option value="">Selecione uma opção</option>
+                                <option value="sus">Sus</option>
+                                <option value="particular">Particular</option>
+                            </select>
+                        </div>
                     </div>
                     
 
@@ -87,30 +105,29 @@
 
                             <div class="flex-content">
                                 <label class="tx" >Médico Responsável</label>
-                                <select name="" id="" class="sele-doc">
-                                    <option value="">Escolha o Médico</option>
-                                    <option value=""></option>
-                                    <option value=""></option>
+                                <select name="medico" id="" class="sele-doc">
+                                    <?php foreach ($doctorNames as $name) { ?>
+                                        <option value="<?= $name ?>"><?= $name ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
+
                             <div class="flex-content">
-                                <label class="tx">Total Gasto</label>
-                                <input type="text" name="" id="" placeholder="Ex: 258,43" class="gastos">
+                                <label class="tx" for="gastos">Total Gasto</label>
+                                <input type="text" name="gastos" id="gastos" placeholder="Ex: 258,43" class="gastos">
                             </div>
 
                         </div>
 
                         <div class="surgery-type">
                             <label class="tx-proc">Tipo de Cirurgia</label>
-                            
                             <div class="check-proc">
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Urologica</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">oftalmológicas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">neurológicas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">ortopédicas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Cardíacas</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Gastrointestinais</label></div>
-                                <div class="checkbox"><input type="checkbox" name="" id=""> <label for="">Plásticas</label></div>
+                            <?php foreach ($surgeryNames as $name) { ?>
+                                    <div class="checkbox">
+                                        <input type="checkbox" value="<?= $name ?>" name="surgery[]" id="<?= $name ?>">
+                                        <label for="<?= $name ?>"><?= $name ?></label>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -149,18 +166,7 @@
 
             e.target.value = cpf;
             });
-                    const body = document.querySelector('body'),
-            sidebar = body.querySelector('nav'),
-            toggle = body.querySelector(".toggle"),
-            searchBtn = body.querySelector(".search-box"),
-            modeSwitch = body.querySelector(".toggle-switch"),
-            modeText = body.querySelector(".mode-text");
-            toggle.addEventListener("click" , () =>{
-                sidebar.classList.toggle("close");
-            })
-            searchBtn.addEventListener("click" , () =>{
-                sidebar.classList.remove("close");
-            })
+           
 
     </script>
 

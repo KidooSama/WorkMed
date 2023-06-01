@@ -1,17 +1,5 @@
 <?php
-    // Recebendo o id via GET
-    $id = $_GET['id'];
-    
-    // Aqui você pode fazer uma consulta ao banco de dados ou acessar o objeto que contém os dados do médico com o id recebido
-    // Suponha que esteja acessando um objeto $doctor com as informações do médico
 
-    // Verificando se o formulário foi submetido
-    if (isset($_POST['submit'])) {
-        // Aqui você pode pegar os dados do formulário e atualizar os dados do médico com o id recebido
-        // Depois de atualizar, você pode redirecionar para a página de listagem de médicos
-        header("Location: ./medic-list.php");
-        exit();
-    }
 ?>
 <!DOCTYPE html>
 

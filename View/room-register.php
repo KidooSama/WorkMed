@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-    require_once '../php/surgeryDao.php';
-    $surgeryDAO = new SurgeryDAO();
+    require_once '../php/roomDao.php';
+    $surgeryDAO = new RoomDAO();
     $surgeryNames = $surgeryDAO->SurgeryNames();
 ?>
 <html>
