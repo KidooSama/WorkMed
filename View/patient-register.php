@@ -3,7 +3,6 @@
     require_once '../php/patientDao.php';
     $surgeryDAO = new PatientDAO();
     $surgeryNames = $surgeryDAO->SurgeryNames();
-
     $doctorNames = $surgeryDAO->DoctorNames();
 
 ?>

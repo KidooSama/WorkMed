@@ -78,7 +78,7 @@
                 
                 
             <?php
-            
+            echo $patient->getName();
               } 
             ?>
 

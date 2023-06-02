@@ -4,20 +4,20 @@ require_once 'patient.php';
 class PatientDAO {
 
     public function create (Patient $patient) {
-        $sql = 'INSERT INTO  patient (name, gender, number, cpf, date, adress, date_surgery, medical_history, expenses, type_surgery, doctor_name, insurance) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO  patient (name, cpf, gender, date, number, adress, date_surgery, medical_history, insurance, doctor_name, expenses, type_surgery) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $patient->getName());
-        $stmt->bindValue(2, $patient->getGen());
-        $stmt->bindValue(3, $patient->getNum());
-        $stmt->bindValue(4, $patient->getCpf());
-        $stmt->bindValue(5, $patient->getDate());
+        $stmt->bindValue(2, $patient->getCpf());
+        $stmt->bindValue(3, $patient->getGen());
+        $stmt->bindValue(4, $patient->getDate());
+        $stmt->bindValue(5, $patient->getNum());
         $stmt->bindValue(6, $patient->getAdr());
         $stmt->bindValue(7, $patient->getDateSurgery());
         $stmt->bindValue(8, $patient->getMedicalHistory());
-        $stmt->bindValue(9, $patient->getExpenses());
-        $stmt->bindValue(10, $patient->getTypeSurgery());
-        $stmt->bindValue(11, $patient->getDoctor());
-        $stmt->bindValue(12, $patient->getInsurance());
+        $stmt->bindValue(9, $patient->getInsurance());
+        $stmt->bindValue(10, $patient->getDoctor());
+        $stmt->bindValue(11, $patient->getExpenses());
+        $stmt->bindValue(12, $patient->getTypeSurgery());
         $stmt->execute();
         $id = Conexao::getConn()->lastInsertid('patient');
         $patient->setId($id);
@@ -31,7 +31,7 @@ class PatientDAO {
         if($stmt->rowCount() > 0){
             $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             foreach ($resultado as $row) {
-                $patient = new Patient($row['name'],$row['gender'], $row['number'], $row['cpf'], $row['date'], $row['adress'], $row['date_surgery'],$row['medical_history'],$row['expenses'],$row['type_surgery'],$row['doctor_name'],$row['insurance']);
+                $patient = new Patient($row['name'],$row['cpf'], $row['gender'], $row['date'], $row['number'], $row['adress'], $row['date_surgery'],$row['medical_history'],$row['insurance'],$row['doctor_name'],$row['expenses'],$row['type_surgery']);
                 $patient->setId($row['id']);
                 $patients[] = $patient;
             }

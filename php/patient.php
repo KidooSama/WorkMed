@@ -8,7 +8,7 @@ class Patient extends Person{
     protected $doctor;
     protected $insurance;
 
-    public function __construct($num, $name, $cpf, $gen, $date, $adr, $date_surgery, $medical_history, $expenses, $type_surgery, $doctor, $insurance) {
+    public function __construct($name, $cpf, $gen, $date,$num, $adr, $date_surgery, $medical_history, $insurance, $doctor, $expenses, $type_surgeries) {
         $this->num = $num;
         $this->name = $name;
         $this->cpf = $cpf;
@@ -18,7 +18,7 @@ class Patient extends Person{
         $this->date_surgery = $date_surgery;
         $this->medical_history = $medical_history;
         $this->expenses = $expenses;
-        $this->type_surgery = $type_surgery;
+        $this->type_surgery = $type_surgeries;
         $this->doctor = $doctor;
         $this->insurance = $insurance;
     }
