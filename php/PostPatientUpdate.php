@@ -18,8 +18,8 @@ $type_surgeries =  $_POST['surgery'];
 
 
 $patient = new Patient($name, $cpf, $gen, $date,$num, $adr, $date_surgery, $room_used, $insurance, $doctor, $expenses, $type_surgeries);
-$patientDAO->create($patient);
+$patientDAO->update($patient);
 
-header('Location: ../view/select-list.php');
+header('Location: ../view/patient-list.php');
 
 ?>

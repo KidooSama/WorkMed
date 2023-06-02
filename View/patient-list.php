@@ -58,7 +58,7 @@
                             <div class="especs">
                                 <h1>Especificações</h1>
                                 <p><?= $patient->getDateSurgery() ?></p>
-                                <p><?= $patient->getMedicalHistory() ?></p>
+                                <p><?= $patient->getRoomUsed() ?></p>
                                 <p><?= $patient->getExpenses() ?></p>
                                 <p><?= $patient->getTypeSurgery() ?></p>
                                 <p><?= $patient->getDoctor() ?></p>
@@ -70,7 +70,7 @@
                     </details>
                     </form>
                     <div class="btn-action">
-                        <a href="./medic-update.php?id=<?= $patient->getId() ?>"><button class="delete-btn">Editar</button></a>
+                        <a href="./patient-update.php?id=<?= $patient->getId() ?>"><button class="delete-btn">Editar</button></a>
                         <a href="../php/deletePatient.php?id=<?= $patient->getId() ?>"><button class="delete-btn">Excluir</button></a>
                     </div>
                     
@@ -78,7 +78,7 @@
                 
                 
             <?php
-            echo $patient->getName();
+           
               } 
             ?>
 

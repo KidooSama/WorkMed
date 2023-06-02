@@ -7,8 +7,9 @@ class Patient extends Person{
     protected $type_surgery;
     protected $doctor;
     protected $insurance;
+    protected $room_used;
 
-    public function __construct($name, $cpf, $gen, $date,$num, $adr, $date_surgery, $medical_history, $insurance, $doctor, $expenses, $type_surgeries) {
+    public function __construct($name, $cpf, $gen, $date,$num, $adr, $date_surgery, $room_used, $insurance, $doctor, $expenses, $type_surgeries) {
         $this->num = $num;
         $this->name = $name;
         $this->cpf = $cpf;
@@ -16,7 +17,7 @@ class Patient extends Person{
         $this->date = $date;
         $this->adr = $adr;
         $this->date_surgery = $date_surgery;
-        $this->medical_history = $medical_history;
+        $this->room_used = $room_used;
         $this->expenses = $expenses;
         $this->type_surgery = $type_surgeries;
         $this->doctor = $doctor;
@@ -26,8 +27,8 @@ class Patient extends Person{
     public function setDateSurgery($dts){
         $this->date_surgery = $dts;
     }
-    public function setMedicalHistory($mh){
-        $this->medical_history = $mh;
+    public function setRoomUsed($ru){
+        $this->room_used= $ru;
     }
     public function setExpenses($exp){
         $this->expenses = $exp;
@@ -46,8 +47,8 @@ class Patient extends Person{
     public function getDateSurgery(){
         return $this->date_surgery;
     }
-    public function getMedicalHistory(){
-        return $this->medical_history;
+    public function getRoomUsed(){
+        return $this->room_used;
     }
     public function getExpenses(){
         return $this->expenses;

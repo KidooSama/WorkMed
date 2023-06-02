@@ -4,6 +4,7 @@
     $surgeryDAO = new PatientDAO();
     $surgeryNames = $surgeryDAO->SurgeryNames();
     $doctorNames = $surgeryDAO->DoctorNames();
+    $roomNames = $surgeryDAO->RoomNames();
 
 ?>
 <html>
@@ -82,8 +83,13 @@
                     </div>
                     <div class="form-flex">
                         <div class="flex-content">
-                            <label class="label-form"   for="historico">Historico Médico <span>*</span></label>
-                            <input type="text" name="hitorico" id="historico" required placeholder="Ex.: Diabetes, Pressão alta..." class="input-form">
+                            <label class="label-form"   for="sala">Sala utilizada <span>*</span></label>
+                            <select name="sala" id="sala" class="input-form">
+                            <option disabled selected value="">Escolha uma opção</option>
+                                    <?php foreach ($roomNames as $name) { ?>
+                                        <option value="<?= $name ?>"><?= $name ?></option>
+                                    <?php } ?>
+                                </select>
                         </div>
                         <div class="flex-content">
                         <label class="label-form" for="convenio">Convênio <span>*</span></label>
@@ -105,6 +111,7 @@
                             <div class="flex-content">
                                 <label class="tx" >Médico Responsável</label>
                                 <select name="medico" id="" class="sele-doc">
+                                <option disabled selected value="">Escolha uma opção</option>
                                     <?php foreach ($doctorNames as $name) { ?>
                                         <option value="<?= $name ?>"><?= $name ?></option>
                                     <?php } ?>
@@ -123,7 +130,7 @@
                             <div class="check-proc">
                             <?php foreach ($surgeryNames as $name) { ?>
                                     <div class="checkbox">
-                                        <input type="checkbox" value="<?= $name ?>" name="surgery[]" id="<?= $name ?>">
+                                        <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
                                         <label for="<?= $name ?>"><?= $name ?></label>
                                     </div>
                                 <?php } ?>
