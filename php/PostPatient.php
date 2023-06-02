@@ -16,7 +16,7 @@ $expenses = $_POST['gastos'];
 $type_surgeries = implode(',', $_POST['surgery']);
 $insurance = $_POST['convenio'];
 
-$patient = new Patient($num, $name, $cpf, $gen, $date, $adr, $date_surgery, $medical_history, $expenses, $type_surgeries, $doctor, $insurance);
+$patient = new Patient($num, $name, $cpf, $gen, $date, $adr, $date_surgery, $medical_history, $expenses, $type_surgery, $doctor, $insurance);
 $patientDAO->create($patient);
 
 header('Location: ../view/select-list.php');

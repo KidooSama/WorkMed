@@ -23,21 +23,20 @@ class PatientDAO {
         $patient->setId($id);
     }
 
-    // public function read(){
-    //     $sql = 'SELECT * FROM patient';
-    //     $stmt = Conexao::getConn()->prepare($sql);
-    //     $stmt->execute();
-    //     $patients = [];
-    //     if($stmt->rowCount() > 0){
-    //         $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    //         foreach ($resultado as $row) {
-    //             $patient = new Patient($row['name'],$row['speciality'],$row['gender'],$row['crm'], $row['number'], $row['cpf'], $row['date'], $row['adress'] );
-    //             $patient->setId($row['id']);
-    //             $patients[] = $patient;
-    //         }
-    //     }
-    //     return $patients;
-    // }
+    public function read(){
+        $sql = 'SELECT * FROM patient';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+        $patients = [];
+        if($stmt->rowCount() > 0){
+            $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($resultado as $row) {
+                $patient = new Patient($row['name'],$row['gender'], $row['number'], $row['cpf'], $row['date'], $row['adress'], $row['date_surgery'],$row['medical_history'],$row['expenses'],$row['type_surgery'],$row['doctor_name'],$row['insurance']);
+                $patient->setId($row['id']);
+                $patients[] = $patient;
+            }
+        }return $patients;
+    }
 
     public function SurgeryNames(){
         $sql = 'SELECT name FROM surgery';
