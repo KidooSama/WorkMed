@@ -70,7 +70,7 @@
                     </details>
                     </form>
                     <div class="btn-action">
-                        <a href="./patient-update.php?id=<?= $patient->getId() ?>"><button class="delete-btn">Editar</button></a>
+                        <a href="../View/patient-update.php?id=<?=$patient->getId() ?>"><button class="delete-btn">Editar</button></a>
                         <a href="../php/deletePatient.php?id=<?= $patient->getId() ?>"><button class="delete-btn">Excluir</button></a>
                     </div>
                     

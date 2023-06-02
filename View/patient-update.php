@@ -2,19 +2,11 @@
 <?php
     require_once '../php/patientDao.php';
     $patientDAO = new PatientDAO();
+    $patientId = $_GET['id'];
+    $patient = $patientDAO->getPatientById($patientId);
     $surgeryNames = $patientDAO->SurgeryNames();
     $doctorNames = $patientDAO->DoctorNames();
     $roomNames = $patientDAO->RoomNames();
-    if (isset($_GET['id'])) {
-        $patientId = $_GET['id'];
-    
-        // Obtenha os dados do paciente com base no ID
-        $patient = $patientDAO->getPatientById($patientId);
-    }else {
-            // Redirecione para a página de lista de pacientes se o ID não for fornecido
-            header('Location: select-list.php');
-            exit;    
-    }
 ?>
 <html>
 <head>
@@ -138,11 +130,11 @@
                 <label class="tx-proc">Tipo de Cirurgia</label>
                 <div class="check-proc">
                 <?php foreach ($surgeryNames as $name) { ?>
-                        <div class="checkbox">
-                                <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
-                            <label for="<?= $name ?>"><?= $name ?></label>
-                        </div>
-                    <?php } ?>
+                    <div class="checkbox">
+                        <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
+                        <label for="<?= $name ?>"><?= $name ?></label>
+                    </div>
+                <?php } ?>
                 </div>
             </div>
 

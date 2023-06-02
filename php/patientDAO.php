@@ -110,23 +110,25 @@ class PatientDAO {
     }
     
 
-    public function update(Patient $patient) {
-    $sql = 'UPDATE patient SET name=?, cpf=?, gender=?, date=?, number=?, adress=?, date_surgery=?, room_used=?, insurance=?, doctor_name=?, expenses=?, type_surgery=? WHERE id=?';
-    $stmt = Conexao::getConn()->prepare($sql);
-    $stmt->bindValue(1, $patient->getName());
-    $stmt->bindValue(2, $patient->getCpf());
-    $stmt->bindValue(3, $patient->getGen());
-    $stmt->bindValue(4, $patient->getDate());
-    $stmt->bindValue(5, $patient->getNum());
-    $stmt->bindValue(6, $patient->getAdr());
-    $stmt->bindValue(7, $patient->getDateSurgery());
-    $stmt->bindValue(8, $patient->getRoomUsed());
-    $stmt->bindValue(9, $patient->getInsurance());
-    $stmt->bindValue(10, $patient->getDoctor());
-    $stmt->bindValue(11, $patient->getExpenses());
-    $stmt->bindValue(12, $patient->getTypeSurgery());
-    $stmt->execute();
-}
+    public function update(Patient $patient)
+    {
+        $sql = 'UPDATE patient SET name=?, cpf=?, gender=?, date=?, number=?, adress=?, date_surgery=?, room_used=?, insurance=?, doctor_name=?, expenses=?, type_surgery=? WHERE id=?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $patient->getName());
+        $stmt->bindValue(2, $patient->getCpf());
+        $stmt->bindValue(3, $patient->getGen());
+        $stmt->bindValue(4, $patient->getDate());
+        $stmt->bindValue(5, $patient->getNum());
+        $stmt->bindValue(6, $patient->getAdr());
+        $stmt->bindValue(7, $patient->getDateSurgery());
+        $stmt->bindValue(8, $patient->getRoomUsed());
+        $stmt->bindValue(9, $patient->getInsurance());
+        $stmt->bindValue(10, $patient->getDoctor());
+        $stmt->bindValue(11, $patient->getExpenses());
+        $stmt->bindValue(12, $patient->getTypeSurgery());
+        $stmt->bindValue(13, $patient->getId()); // Adicionar esta linha para vincular o ID do paciente
+        $stmt->execute();
+    }
 
     public function delete($id) {
         $sql = 'DELETE FROM patient WHERE id = ?';
