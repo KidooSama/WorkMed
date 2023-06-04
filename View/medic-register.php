@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+    require_once '../php/medicDao.php';
+    $doctorDAO = new MedicDAO();
+    $surgeryNames = $doctorDAO->SurgeryNames();
+?>
 <html>
 <head>
     <meta charset='utf-8'>
@@ -45,17 +50,12 @@
 
                         <div class="flex-content">
                             <label  class="label-form" for="especialidade">Especialidade Médica <span>*</span></label>
-                            <select name="especialidade" id="especialidade" required class="input-form">
-                                <option value="" disabled selected hidden>Selecione uma opção</option>
-                                <option value="cardiologia">Cardiologia</option>
-                                <option value="dermatologia">Dermatologia</option>
-                                <option value="endocrinologia">Endocrinologia</option>
-                                <option value="gastroenterologia">Gastroenterologia</option>
-                                <option value="neurologia">Neurologia</option>
-                                <option value="oftalmologia">Oftalmologia</option>
-                                <option value="ortopedia">Ortopedia</option>
-                                <option value="pediatria">Pediatria</option>
-                            </select>
+                            <select name="especialidade" id="especialidade" class="input-form">
+                                <option disabled selected value="">Escolha uma opção</option>
+                                    <?php foreach ($surgeryNames as $name) { ?>
+                                        <option value="<?= $name ?>"><?= $name ?></option>
+                                    <?php } ?>
+                                </select>
                         </div>
 
                         <div class="flex-content">

@@ -57,20 +57,36 @@ class SurgeryDAO {
     }
 
 
-//     public function update(Doctor $doctor) {
-//         $sql = 'UPDATE doctor SET name=?, speciality=?, gender=?, crm=?, number=?, cpf=?, date=?, adress=? WHERE id=?';
-//         $stmt = Conexao::getConn()->prepare($sql);
-//         $stmt->bindValue(1, $doctor->getName());
-//         $stmt->bindValue(2, $doctor->getSpeciality());
-//         $stmt->bindValue(3, $doctor->getGen());
-//         $stmt->bindValue(4, $doctor->getCrm());
-//         $stmt->bindValue(5, $doctor->getNum());
-//         $stmt->bindValue(6, $doctor->getCpf());
-//         $stmt->bindValue(7, $doctor->getDate());
-//         $stmt->bindValue(8, $doctor->getAdr());
-//         $stmt->bindValue(9, $doctor->getId());
-//         $stmt->execute();
-// }
+    public function getSurgeryById($id)
+    {
+        $sql = 'SELECT * FROM surgery WHERE id = :id';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+        $stmt->execute();
+    
+        if ($stmt->rowCount() > 0) {
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+            // Criar um objeto Patient com os dados obtidos do banco de dados
+            $room = new surgery(
+                $result['name'],
+                $result['description'],
+            );
+    
+            return $room;
+        }
+    
+    }
+
+    public function update(Surgery $surgery)
+    {
+        $sql = 'UPDATE surgery SET name=?, description=? WHERE id=?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $surgery->getName());
+        $stmt->bindValue(2, $surgery->getDescription());
+        $stmt->bindValue(3, $surgery->getId());
+        $stmt->execute();
+    }
 
 }
 

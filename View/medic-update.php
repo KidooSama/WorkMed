@@ -1,8 +1,12 @@
-<?php
 
-?>
 <!DOCTYPE html>
-
+<?php
+    require_once '../php/medicDao.php';
+    $doctorDAO = new MedicDAO();
+    $doctorId = $_GET['id'];
+    $doctor = $doctorDAO->getMedicById($doctorId);
+    $surgeryNames = $doctorDAO->SurgeryNames();
+?>
 <html>
     <head>
         <meta charset='utf-8'>
@@ -37,36 +41,31 @@
 
             <!-- --------------- InputFields --------------- -->
 
-                <form method="POST" action="../php/PostArchives.php" class="form">
+                <form method="POST" action="../php/PostMedicUpdate.php" class="form">
 
                     <div class="flex-content">
                         <label for="nome" class="label-form">Nome Completo <span>*</span></label>
-                        <input  type="text" name="nome" id="nome" required  placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
+                        <input  type="text" name="nome" id="nome" required   value="<?= $doctor->getName() ?>" placeholder="Ex.: João Claudio Custódio" class="input-form-wd">
                     </div>
 
                     <div class="form-flex">
 
                         <div class="flex-content">
                             <label  class="label-form" for="especialidade">Especialidade Médica <span>*</span></label>
-                            <select name="especialidade" id="especialidade" required class="input-form">
-                                <option value="" disabled selected hidden>Selecione uma opção</option>
-                                <option value="cardiologia">Cardiologia</option>
-                                <option value="dermatologia">Dermatologia</option>
-                                <option value="endocrinologia">Endocrinologia</option>
-                                <option value="gastroenterologia">Gastroenterologia</option>
-                                <option value="neurologia">Neurologia</option>
-                                <option value="oftalmologia">Oftalmologia</option>
-                                <option value="ortopedia">Ortopedia</option>
-                                <option value="pediatria">Pediatria</option>
-                            </select>
+                            <select name="especialidade" id="especialidade" class="input-form">
+                                <option disabled selected value="">Escolha uma opção</option>
+                                    <?php foreach ($surgeryNames as $name) { ?>
+                                        <option value="<?= $name ?>"><?= $name ?></option>
+                                    <?php } ?>
+                                </select>
                         </div>
 
                         <div class="flex-content">
                             <label class="label-form" for="genero">Gênero <span>*</span></label>
                             <select name="genero" id="genero" required class="input-form">
                                 <option value="">Selecione uma opção</option>
-                                <option value="masculino">Masculino</option>
-                                <option value="feminino">Feminino</option>
+                                <option value="masculino" <?= ($doctor->getGen() === 'masculino') ? 'selected' : '' ?>>Masculino</option>
+                                <option value="feminino" <?= ($doctor->getGen() === 'feminino') ? 'selected' : '' ?>>Feminino</option>
                             </select>
                         </div>
 
@@ -76,12 +75,12 @@
 
                         <div class="flex-content">
                             <label class="label-form" for="crm">CRM <span>*</span></label>
-                            <input type="text" name="crm" oninput="formatar_crm(this)"  maxlength="9" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
+                            <input type="text" name="crm" oninput="formatar_crm(this)" value="<?= $doctor->getName() ?>" maxlength="9" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
                         </div>
 
                         <div class="flex-content">
                             <label class="label-form" for="celular">Celular <span>*</span></label>
-                            <input type="text" name="celular" id="celular" required placeholder="Ex.: (88) 9 9653-3482" maxlength="11" class="input-form">
+                            <input type="text" name="celular" id="celular" required value="<?= $doctor->getNum() ?>" placeholder="Ex.: (88) 9 9653-3482" maxlength="11" class="input-form">
                         </div>
 
                     </div>
@@ -90,18 +89,18 @@
 
                         <div class="flex-content">
                             <label class="label-form" for="cpf">CPF <span>*</span></label>
-                            <input type="text" name="cpf" id="cpf" required placeholder="Ex.: 123.456.789-00" maxlength="14" class="input-form">
+                            <input type="text" name="cpf" id="cpf" required value="<?= $doctor->getCpf() ?>" placeholder="Ex.: 123.456.789-00" maxlength="14" class="input-form">
                         </div>
                         <div class="flex-content">
                             <label class="label-form" for="data_nascimento">Data de Nascimento <span>*</span></label>
-                            <input type="date" name="data_nascimento" id="data_nascimento" required placeholder="Ex.: 25/07/1986" class="input-form">
+                            <input type="date" name="data_nascimento" id="data_nascimento" value="<?= $doctor->getDate() ?>" required placeholder="Ex.: 25/07/1986" class="input-form">
                         </div>
 
                     </div>
 
                     <div class="flex-content">
                         <label class="label-form"   for="endereco">Endereço <span>*</span></label>
-                        <input type="text" name="endereco" id="endereco" required placeholder="Ex.: Rua São Paulo, 986" class="input-form-wd">
+                        <input type="text" name="endereco" id="endereco" required value="<?= $doctor->getAdr() ?>" placeholder="Ex.: Rua São Paulo, 986" class="input-form-wd">
                     </div>
 
                     <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>

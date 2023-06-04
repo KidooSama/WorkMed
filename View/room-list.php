@@ -62,7 +62,7 @@
                     </details>
                     </form>
                     <div class="btn-action">
-                        <a href="./surgery-update.php?id=<?= $room->getId() ?>"><button class="delete-btn">Editar</button></a>
+                        <a href="./room-update.php?id=<?= $room->getId() ?>"><button class="delete-btn">Editar</button></a>
                         <a href="../php/deleteRoom.php?id=<?= $room->getId() ?>"><button class="delete-btn">Excluir</button></a>
                     </div>
                     

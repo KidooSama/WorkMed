@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <?php
     require_once '../php/roomDao.php';
-    $surgeryDAO = new RoomDAO();
-    $surgeryNames = $surgeryDAO->SurgeryNames();
+    $roomDAO = new RoomDAO();
+    $roomId = $_GET['id'];
+    $room = $roomDAO->getRoomById($roomId);
+    $surgeryNames = $roomDAO->SurgeryNames();
+
 ?>
 <html>
 <head>
@@ -36,7 +39,7 @@
 
         <!-- --------------- InputFields --------------- -->
         <div class="content-form">
-                <form method="POST" action="../php/PostRoom.php" class="form">
+                <form method="POST" action="../php/PostRoomUpdate.php?id=<?= $roomId ?>" class="form">
 
                     <div class="procedure-flex">
 
@@ -44,11 +47,11 @@
 
                             <div class="flex-content">
                                 <label class="tx"  for="name" >Nome da Sala <span>*</span></label>
-                                <input name="name" id="" class="name" placeholder="Ex.: Sala 1 ">
+                                <input name="name" id="" class="name" value="<?= $room->getName() ?>" placeholder="Ex.: Sala 1 ">
                             </div>
                             <div class="flex-content">
                                 <label class="tx">Localidade da Sala <span>*</span></label>
-                                <input type="text" name="location" id="" placeholder="Ex.: 2° Corredor, 3° Andar" class="locate">
+                                <input type="text" name="location" id="location" value="<?= $room->getLocation() ?>" placeholder="Ex.: 2° Corredor, 3° Andar" class="locate">
                             </div>
 
                         </div>
@@ -58,7 +61,7 @@
                             <div class="check-proc">
                                 <?php foreach ($surgeryNames as $name) { ?>
                                     <div class="checkbox">
-                                        <input type="checkbox" value="<?= $name ?>" name="surgery   " id="<?= $name ?>">
+                                        <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
                                         <label for="<?= $name ?>"><?= $name ?></label>
                                     </div>
                                 <?php } ?>
@@ -69,7 +72,7 @@
                     
                     <div class="flex-content">
                         <label class="label-form"   for="description">Descrição <span>*</span></label>
-                        <textarea type="text" name="description" id="description" required placeholder="Ex.: Sala número 2, utilizada para procedimentos cardíacos e pediátrico." class="input-form-wd"></textarea>
+                        <textarea type="text" name="description" id="description" value="<?= $room->getDescription()?>" required placeholder="Ex.: Sala número 2, utilizada para procedimentos cardíacos e pediátrico." class="input-form-wd"></textarea>
                     </div>
 
                     <div class="btn-form"><button type="submit" class="btn-submit">Salvar</button></div>
