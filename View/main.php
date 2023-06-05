@@ -7,8 +7,10 @@ $medicDAO = new MedicDAO();
 $patientDAO = new PatientDAO();
 $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
 $doctorNames = $patientDAO->DoctorNames();
+$insuranceNames = $patientDAO->InsuranceNames();
 
 ?>
+
 <html>
 <head>
     <meta charset='utf-8'>
@@ -52,12 +54,24 @@ $doctorNames = $patientDAO->DoctorNames();
                     </select>
                 </div>
                 <h2 id="nomeMedico"></h2>
-                <div id="numeroCirurgias"></div>
+                <h2 id="numeroCirurgias"></h2>
             </div>
 
+
             <div class="s-content" id="convenio">
+                <div class="flex-itens">
                     <h2>Convênio</h2>
+                    <select name="insurance" id="insurance" class="sel-med">
+                        <option disabled selected>Selecione o Convenio</option>
+                        <?php foreach ($insuranceNames as $name) { ?>
+                            <option value="<?= $name ?>"><?= $name ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <h2 id="nomeInsurance"></h2>
+                <h2 id="numeroICirurgias"></h2>
             </div>
+
 
             <div class="s-content" id="updates">
                     <h2>Juazeiro do Norte</h2>
@@ -98,35 +112,61 @@ $doctorNames = $patientDAO->DoctorNames();
     </section>
 
 
+<!-- Script para pegar quantidad de cirurgias por medico -->
+    <script>
+        var selectMedico = document.getElementById('medico');
+        var h2NomeMedico = document.getElementById('nomeMedico');
+        var divNumeroCirurgias = document.getElementById('numeroCirurgias');
+
+        selectMedico.addEventListener('change', function() {
+            var selectedMedico = selectMedico.value;
+
+            // Atualizar o nome do médico
+            h2NomeMedico.textContent = selectedMedico;
+
+            // Consultar o número de cirurgias cadastradas no nome do médico
+            fetch('../php/ajax_get_cirurgias.php?medico=' + encodeURIComponent(selectedMedico))
+                .then(response => response.json())
+                .then(data => {
+                    // Atualizar o número de cirurgias
+                    divNumeroCirurgias.textContent = 'Número de Cirurgias: ' + data.count;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter o número de cirurgias:', error);
+                });
+        });
+
+    </script>
+
+<!-- Script para pegar quantidad de convenio por paciente -->
+    <script>
+
+        var selectInsurance = document.getElementById('insurance');
+        var h2NomeInsurance = document.getElementById('nomeInsurance');
+        var divNumeroCirurgias = document.getElementById('numeroICirurgias');
+
+        selectInsurance.addEventListener('change', function() {
+            var selectedInsurance = selectInsurance.value;
+
+            // Atualizar o nome do médico
+            h2NomeInsurance.textContent = selectedInsurance;
+
+            // Consultar o número de cirurgias cadastradas no nome do médico
+            fetch('../php/ajax_get_insurance_cirurgias.php?insurance=' + encodeURIComponent(selectedInsurance))
+                .then(response => response.json())
+                .then(data => {
+                    // Atualizar o número de cirurgias
+                    divNumeroInsurance.textContent = 'Número de Cirurgias: ' + data.count;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter o número de cirurgias:', error);
+                });
+        });
+
+    </script>
 
 
-<script>
-    
-    var selectMedico = document.getElementById('medico');
-    var h2NomeMedico = document.getElementById('nomeMedico');
-    var divNumeroCirurgias = document.getElementById('numeroCirurgias');
-
-    selectMedico.addEventListener('change', function() {
-        var selectedMedico = selectMedico.value;
-
-        // Atualizar o nome do médico
-        h2NomeMedico.textContent = selectedMedico;
-
-        // Consultar o número de cirurgias cadastradas no nome do médico
-    fetch('../php/patientDAO.php?medico=' + encodeURIComponent(selectedMedico))
-    .then(response => response.json())
-    .then(data => {
-        // Atualizar o número de cirurgias
-        divNumeroCirurgias.textContent = 'Número de Cirurgias: ' + data.count;
-    })
-    .catch(error => {
-        console.error('Erro ao obter o número de cirurgias:', error);
-    });
-
-    });
-
-</script>
-
+<!-- Grafico de Cirurgias por meses -->
 <script>
     var surgeryData = <?php echo json_encode($surgeryData); ?>;
 

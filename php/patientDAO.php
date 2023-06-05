@@ -78,6 +78,20 @@ class PatientDAO {
         }
         return $names;
     }
+    public function InsuranceNames(){
+        $sql = 'SELECT id, insurance FROM patient';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+        $names = [];
+        if($stmt->rowCount() > 0){
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($result as $row) {
+                $names[$row['insurance']] = $row['insurance'];
+            }
+        }
+        return $names;
+    }
+
     public function getPatientById($id)
     {
         $sql = 'SELECT * FROM patient WHERE id = :id';
@@ -106,17 +120,7 @@ class PatientDAO {
         }
     
     }
-    
-    public function getNumeroCirurgias($medico) {
-        $sql = "SELECT COUNT(*) as count FROM patient WHERE doctor_name = :medico";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(':medico', $medico, PDO::PARAM_STR);
-        $stmt->execute();
-    
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result['count'];
-    }
-    
+  
     
 
     public function update(Patient $patient){
@@ -146,14 +150,23 @@ class PatientDAO {
         $stmt->execute();
     }
 
-    public function getSurgeriesByDoctor(){
-    $sql = 'SELECT doctor_name, COUNT(*) as count FROM patient GROUP BY doctor_name';
-    $stmt = Conexao::getConn()->prepare($sql);
-    $stmt->execute();
 
-    $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    return $result;
+    public function getNumeroCirurgias($medico) {
+        $sql = "SELECT COUNT(*) as count FROM patient WHERE doctor_name = :medico";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(':medico', $medico, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $count = $result['count'];
+
+        return $count;
     }
+    
+    
+    
+    
+
     public function getSurgeriesLastThreeMonths()
     {
         $sql = "SELECT DATE_FORMAT(date_surgery, '%Y-%m') as month, COUNT(*) as count
