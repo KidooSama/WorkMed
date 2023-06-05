@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <?php
-    require_once '../php/medicDao.php';
+    require_once '../php/medicDAO.php';
     $doctorDAO = new MedicDAO();
     $doctorId = $_GET['id'];
     $doctor = $doctorDAO->getMedicById($doctorId);
@@ -41,7 +41,7 @@
 
             <!-- --------------- InputFields --------------- -->
 
-                <form method="POST" action="../php/PostMedicUpdate.php" class="form">
+                <form method="POST" action="../php/PostMedicUpdate.php?id=<?= $doctorId ?>" class="form">
 
                     <div class="flex-content">
                         <label for="nome" class="label-form">Nome Completo <span>*</span></label>

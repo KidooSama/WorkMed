@@ -63,7 +63,7 @@ class MedicDAO {
                 $result['number'],
                 $result['cpf'],
                 $result['date'],
-                $result['adress'],
+                $result['adress']
             );
             return $doctor;
         }
@@ -79,7 +79,7 @@ class MedicDAO {
             $stmt->bindValue(6, $doctor->getCpf());
             $stmt->bindValue(7, $doctor->getDate());
             $stmt->bindValue(8, $doctor->getAdr());
-            $stmt->bindValue(9, $doctor->getId()); // Adicionar esta linha para vincular o ID do paciente
+            $stmt->bindValue(9, $doctor->getId()); 
             $stmt->execute();
         }
 

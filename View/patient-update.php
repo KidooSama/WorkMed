@@ -39,7 +39,9 @@
 
         <!-- --------------- InputFields --------------- -->
         <div class="content-form">
+
         <form method="POST" action="../php/postPatientUpdate.php?id=<?= $patientId ?>" class="form">
+        
         <div class="flex-content">
             <label for="nome" class="label-form">Nome Completo do Paciente <span>*</span></label>
             <input type="text" name="nome" id="nome" required placeholder="Ex.: João Claudio Custódio" class="input-form-wd" value="<?= $patient->getName() ?>">

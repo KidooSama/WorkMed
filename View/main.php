@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+require_once '../php/patientDAO.php';
+require_once '../php/MedicDao.php';
+
+$medicDAO = new MedicDAO();
+$patientDAO = new PatientDAO();
+$surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
+
+?>
 <html>
 <head>
     <meta charset='utf-8'>
@@ -11,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
    <?php
@@ -24,8 +33,51 @@
             <div class="text-menu">Dashboard</div>
         </div>
         <div class="text-h2">Seja bem vinda, User.</div>
-        <div class="banner">
-            <img src="../Components/SVG/main 2.svg" alt="">
+
+
+        <div class="content-form">
+
+            <div class="initial-content">
+                <div class="s-content" id="medicos">
+                    <h2>Médicos</h2>
+                    
+                
+
+                </div>
+                <div class="s-content" id="convenio">
+                    <h2>Convênio</h2>
+                </div>
+                <div class="s-content" id="updates">
+                    <h2>Juazeiro do Norte</h2>
+                </div>
+            </div>
+
+
+            <div class="mid-content">
+
+                <div class="m-content" id="total-c">
+                    <h2>Cirurgias Realizadas</h2>
+                    <canvas id="surgeryChart"></canvas>
+                </div>
+
+                <div class="mm-content" id="cirurgias">
+                    <h2>Procedimentos</h2>
+                    <h4>Total Cirurgias</h4>
+                </div>
+
+            </div>
+
+
+            <div class="end-content">
+                <div class="e-content" id="gadtos">
+                    <h2>Gastos Totais</h2>  
+                    <h4>Com cirurgias</h4>
+                </div>
+            </div>
+
+
+
+
         </div>
 
 
@@ -33,17 +85,38 @@
 
 
 
+    <script>
+    var surgeryData = <?php echo json_encode($surgeryData); ?>;
 
+    var months = surgeryData.map(function(item) {
+        return item.month;
+    });
 
+    var surgeryCount = surgeryData.map(function(item) {
+        return item.count;
+    });
 
-
-
-
-
-
-
-
-
+    var ctx = document.getElementById('surgeryChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Quantidade de Cirurgias',
+                data: surgeryCount,
+                backgroundColor: 'rgba(123, 123, 255, 0.5)'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }
+        }
+    });
+</script>
 
     <script>
         const body = document.querySelector('body'),

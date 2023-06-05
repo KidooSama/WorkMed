@@ -12,9 +12,9 @@ $cpf = $_POST['cpf'];
 $date = $_POST['data_nascimento'];
 $adr = $_POST['endereco'];
 
-$doctor = new Doctor($name, $speciality, $gen, $crm, $num, $cpf, $date, $adr);
-$doctor->setId($id);
-$medicDAO->update($doctor);
+$medic = new Doctor($name, $speciality, $gen, $crm, $num, $cpf, $date, $adr);
+$medic->setId($id);
+$medicDAO->update($medic);
 
 header('Location: ../view/medic-list.php');
 

@@ -67,7 +67,7 @@
                         </div>
                         <div class="flex-content">
                             <label class="label-form" for="celular">Celular <span>*</span></label>
-                            <input type="text" name="celular" id="celular" required placeholder="Ex.: (88) 9 9653-3482" class="input-form">
+                            <input type="text" name="celular" id="celular" required placeholder="Ex.: (88) 9 9653-3482"maxlength="11" class="input-form">
                         </div>
                     </div>
 

@@ -87,8 +87,6 @@ class PatientDAO {
     
         if ($stmt->rowCount() > 0) {
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-    
-            // Criar um objeto Patient com os dados obtidos do banco de dados
             $patient = new Patient(
                 $result['name'],
                 $result['cpf'],
@@ -109,9 +107,9 @@ class PatientDAO {
     
     }
     
+    
 
-    public function update(Patient $patient)
-    {
+    public function update(Patient $patient){
         $sql = 'UPDATE patient SET name=?, cpf=?, gender=?, date=?, number=?, adress=?, date_surgery=?, room_used=?, insurance=?, doctor_name=?, expenses=?, type_surgery=? WHERE id=?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $patient->getName());
@@ -137,4 +135,27 @@ class PatientDAO {
 
         $stmt->execute();
     }
+
+    public function getSurgeriesByDoctor(){
+    $sql = 'SELECT doctor_name, COUNT(*) as count FROM patient GROUP BY doctor_name';
+    $stmt = Conexao::getConn()->prepare($sql);
+    $stmt->execute();
+
+    $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    return $result;
+    }
+    public function getSurgeriesLastThreeMonths(){
+        $sql = "SELECT DATE_FORMAT(date_surgery, '%Y-%m') as month, COUNT(*) as count
+                FROM patient
+                WHERE date_surgery >= DATE_FORMAT(NOW() - INTERVAL 2 MONTH, '%Y-%m-01')
+                GROUP BY DATE_FORMAT(date_surgery, '%Y-%m')
+                ORDER BY DATE_FORMAT(date_surgery, '%Y-%m')";
+        
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+    
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+    
 }

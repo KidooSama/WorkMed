@@ -87,3 +87,57 @@
     gap: 6rem;
 
 }
+
+.content-form{
+    margin-left: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10rem;
+    margin-top: 5rem;
+    color: #FFF;
+}
+
+.initial-content{
+    display: flex;
+    gap: 13rem;
+}
+.s-content{
+    background: #2A2A2B;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 20%;
+
+}
+#myChartContainer {
+    width: 400px;
+    height: 400px;
+    position: relative;
+  }
+
+
+.mid-content{
+    display: flex;
+    gap: 10rem;
+}
+.m-content, .mm-content{
+    background: #2A2A2B;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 25%;
+
+}
+.m-content{
+    width: 50%;
+}
+
+.end-content{
+
+}
+.e-content{
+    background: #2A2A2B;
+    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 20%;
+
+}
