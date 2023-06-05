@@ -6,6 +6,7 @@ require_once '../php/MedicDao.php';
 $medicDAO = new MedicDAO();
 $patientDAO = new PatientDAO();
 $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
+$doctorNames = $patientDAO->DoctorNames();
 
 ?>
 <html>
@@ -21,6 +22,7 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
    <?php
@@ -38,19 +40,30 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
         <div class="content-form">
 
             <div class="initial-content">
-                <div class="s-content" id="medicos">
-                    <h2>Médicos</h2>
-                    
-                
 
+            <div class="s-content" id="medicos">
+                <div class="flex-itens">
+                    <h2>Médicos</h2>
+                    <select name="medico" id="medico" class="sel-med">
+                        <option disabled selected>Selecione o Médico</option>
+                        <?php foreach ($doctorNames as $name) { ?>
+                            <option value="<?= $name ?>"><?= $name ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
-                <div class="s-content" id="convenio">
-                    <h2>Convênio</h2>
-                </div>
-                <div class="s-content" id="updates">
-                    <h2>Juazeiro do Norte</h2>
-                </div>
+                <h2 id="nomeMedico"></h2>
+                <div id="numeroCirurgias"></div>
             </div>
+
+            <div class="s-content" id="convenio">
+                    <h2>Convênio</h2>
+            </div>
+
+            <div class="s-content" id="updates">
+                    <h2>Juazeiro do Norte</h2>
+            </div>
+
+        </div>
 
 
             <div class="mid-content">
@@ -63,6 +76,7 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
                 <div class="mm-content" id="cirurgias">
                     <h2>Procedimentos</h2>
                     <h4>Total Cirurgias</h4>
+                    <canvas id="surgeryChart"></canvas>
                 </div>
 
             </div>
@@ -85,7 +99,35 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
 
 
 
-    <script>
+
+<script>
+    
+    var selectMedico = document.getElementById('medico');
+    var h2NomeMedico = document.getElementById('nomeMedico');
+    var divNumeroCirurgias = document.getElementById('numeroCirurgias');
+
+    selectMedico.addEventListener('change', function() {
+        var selectedMedico = selectMedico.value;
+
+        // Atualizar o nome do médico
+        h2NomeMedico.textContent = selectedMedico;
+
+        // Consultar o número de cirurgias cadastradas no nome do médico
+    fetch('../php/patientDAO.php?medico=' + encodeURIComponent(selectedMedico))
+    .then(response => response.json())
+    .then(data => {
+        // Atualizar o número de cirurgias
+        divNumeroCirurgias.textContent = 'Número de Cirurgias: ' + data.count;
+    })
+    .catch(error => {
+        console.error('Erro ao obter o número de cirurgias:', error);
+    });
+
+    });
+
+</script>
+
+<script>
     var surgeryData = <?php echo json_encode($surgeryData); ?>;
 
     var months = surgeryData.map(function(item) {
@@ -118,7 +160,7 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
     });
 </script>
 
-    <script>
+<script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
       toggle = body.querySelector(".toggle"),
@@ -132,7 +174,7 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
             sidebar.classList.remove("close");
         })
 
-    </script>
+</script>
 
 </body>
 </html>
