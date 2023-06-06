@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/05/2023 às 22:55
+-- Tempo de geração: 06/06/2023 às 02:45
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -44,7 +44,8 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`id`, `name`, `cpf`, `gender`, `date`, `adress`, `speciality`, `crm`, `number`) VALUES
-(45, 'João Ravi ', '634.563.456-34', 'masculino', '2023-05-19', 'ergwefgbsdfb', 'endocrinologia', 'ertergsdb', 2147483647);
+(51, 'Caique Pereira ', '123.456.789-10', 'feminino', '2004-06-27', 'Quixabinha - Mauriti Ce', 'Urologia', '234235t23', 2147483647),
+(55, 'rterher', '455.636.345-63', 'masculino', '0346-06-04', 'gfdhndfgmn', 'Urologia', 'ertjersdf', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE `patient` (
   `date` date NOT NULL,
   `adress` varchar(255) NOT NULL,
   `date_surgery` date NOT NULL,
-  `medical_history` varchar(255) NOT NULL,
+  `room_used` varchar(255) NOT NULL,
   `expenses` float NOT NULL,
   `type_surgery` varchar(255) NOT NULL,
   `doctor_name` varchar(255) NOT NULL,
@@ -81,6 +82,13 @@ CREATE TABLE `room` (
   `type_surgeries` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Atributos da classe room.';
+
+--
+-- Despejando dados para a tabela `room`
+--
+
+INSERT INTO `room` (`id`, `name`, `location`, `type_surgeries`, `description`) VALUES
+(6, 'Sala 1', '2° Corredor', 'Torácica', 'kkkk');
 
 -- --------------------------------------------------------
 
@@ -107,6 +115,14 @@ CREATE TABLE `surgery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Atributos da classe surgery.';
 
 --
+-- Despejando dados para a tabela `surgery`
+--
+
+INSERT INTO `surgery` (`id`, `name`, `description`) VALUES
+(26, 'Urologia', 'advav'),
+(27, 'Cardio', 'eqwga');
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -123,8 +139,7 @@ ALTER TABLE `doctor`
 --
 ALTER TABLE `patient`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY ` UNIQUE` (`cpf`),
-  ADD UNIQUE KEY `Celular` (`number`);
+  ADD UNIQUE KEY ` UNIQUE` (`cpf`);
 
 --
 -- Índices de tabela `room`
@@ -152,19 +167,19 @@ ALTER TABLE `surgery`
 -- AUTO_INCREMENT de tabela `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de tabela `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `superuser`
@@ -176,7 +191,7 @@ ALTER TABLE `superuser`
 -- AUTO_INCREMENT de tabela `surgery`
 --
 ALTER TABLE `surgery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
