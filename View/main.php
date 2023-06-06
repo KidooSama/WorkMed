@@ -8,7 +8,7 @@ $patientDAO = new PatientDAO();
 $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
 $doctorNames = $patientDAO->DoctorNames();
 $insuranceNames = $patientDAO->InsuranceNames();
-
+$procedimentoData = $patientDAO->getSurgeriesProcedure();
 ?>
 
 <html>
@@ -90,14 +90,14 @@ $insuranceNames = $patientDAO->InsuranceNames();
                 <div class="mm-content" id="cirurgias">
                     <h2>Procedimentos</h2>
                     <h4>Total Cirurgias</h4>
-                    <canvas id="surgeryChart"></canvas>
+                    <canvas id="procedimentoChart"></canvas>
                 </div>
 
             </div>
 
 
             <div class="end-content">
-                <div class="e-content" id="gadtos">
+                <div class="e-content" id="gastos">
                     <h2>Gastos Totais</h2>  
                     <h4>Com cirurgias</h4>
                 </div>
@@ -112,7 +112,7 @@ $insuranceNames = $patientDAO->InsuranceNames();
     </section>
 
 
-<!-- Script para pegar quantidad de cirurgias por medico -->
+<!--------------- Script para pegar quantidad de cirurgias por medico ---------->
     <script>
         var selectMedico = document.getElementById('medico');
         var h2NomeMedico = document.getElementById('nomeMedico');
@@ -138,7 +138,7 @@ $insuranceNames = $patientDAO->InsuranceNames();
 
     </script>
 
-<!-- Script para pegar quantidad de convenio por paciente -->
+<!------------ Script para pegar quantidade de convenio por paciente ------------->
 <script>
     var selectInsurance = document.getElementById('insurance');
     var h2NomeInsurance = document.getElementById('nomeInsurance');
@@ -163,41 +163,97 @@ $insuranceNames = $patientDAO->InsuranceNames();
     });
 </script>
 
-
-<!-- Grafico de Cirurgias por meses -->
+<!--------------------- Script Para Procedimentos por cirurgias ------------------>
 <script>
-    var surgeryData = <?php echo json_encode($surgeryData); ?>;
 
-    var months = surgeryData.map(function(item) {
-        return item.month;
-    });
+var surgeryData = <?php echo json_encode($procedimentoData); ?>;
 
-    var surgeryCount = surgeryData.map(function(item) {
-        return item.count;
-    });
+var typeSurgery = surgeryData.map(function(item) {
+    return item.type_surgery; // Altere para corresponder à coluna correta que contém o nome do tipo de cirurgia
+});
 
-    var ctx = document.getElementById('surgeryChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: months,
-            datasets: [{
-                label: 'Quantidade de Cirurgias',
-                data: surgeryCount,
-                backgroundColor: 'rgba(123, 123, 255, 0.5)'
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    stepSize: 1
-                }
-            }
-        }
-    });
+var surgeryCount = surgeryData.map(function(item) {
+    return item.count;
+});
+
+var ctx = document.getElementById('procedimentoChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: typeSurgery,
+        datasets: [{
+            label: 'Quantidade de Cirurgias',
+            data: surgeryCount,
+            backgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56',
+                '#4BC0C0',
+                '#9966FF' 
+            ],
+            borderWidth: 0,
+        }]
+    },
+    options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+    }
+  },
+});
+
+
 </script>
 
+
+<!------------------------ Grafico de Cirurgias por meses ----------------------->
+    <script>
+var surgeryData = <?php echo json_encode($surgeryData); ?>;
+
+var months = surgeryData.map(function(item) {
+    var monthYear = item.month;
+    var month = parseInt(monthYear.split('-')[1]);
+    var year = parseInt(monthYear.split('-')[0]);
+    return getMonthName(month) + ' ' + year;
+});
+
+var surgeryCount = surgeryData.map(function(item) {
+    return item.count;
+});
+
+function getMonthName(month) {
+    var monthNames = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+    return monthNames[month - 1];
+}
+
+var ctx = document.getElementById('surgeryChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: months,
+        datasets: [{
+            label: 'Quantidade de Cirurgias',
+            data: surgeryCount,
+            backgroundColor: 'rgba(123, 123, 255, 0.5)'
+        }]
+    },
+    options: {
+        plugins: {
+      legend: {
+        position: 'none',
+      },
+    }
+    }
+});
+
+    </script>
+
+<!------------------- Menu Sidebar ------------------------>
 <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
