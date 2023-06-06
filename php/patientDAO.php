@@ -174,11 +174,8 @@ class PatientDAO {
         return $count;
     }
     
-    
-    
 
-    public function getSurgeriesLastThreeMonths()
-    {
+    public function getSurgeriesLastThreeMonths(){
         $sql = "SELECT DATE_FORMAT(date_surgery, '%Y-%m') as month, COUNT(*) as count
         FROM patient
         WHERE date_surgery >= DATE_FORMAT(NOW() - INTERVAL 2 MONTH, '%Y-%m-01')
@@ -193,5 +190,16 @@ class PatientDAO {
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getSurgeriesProcedure() {
+        $sql = "SELECT type_surgery, COUNT(*) AS count FROM patient GROUP BY type_surgery";
+        
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+        
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+    
     
 }
