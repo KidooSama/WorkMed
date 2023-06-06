@@ -225,6 +225,7 @@ class PatientDAO {
         // Retorna somente o valor dos gastos totais
         return $result['expenses'];
     }
+
     public function getSurgeryTotal() {
         $sql = "SELECT COUNT(*) AS count FROM patient";
         
@@ -235,7 +236,16 @@ class PatientDAO {
         
         return $result['count'];
     }
+    public function getSurgerieToday() {
+    $sql = "SELECT COUNT(*) AS count FROM patient WHERE DATE(date_surgery) = CURDATE()";
     
+    $stmt = Conexao::getConn()->prepare($sql);
+    $stmt->execute();
+    
+    $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+    return $result['count'];
+}
     
     
 }

@@ -87,32 +87,33 @@
     gap: 6rem;
 
 }
+/* ---------------------CONTEUDO PRINCIPAL-------------------- */
 
 .content-form{
     margin-left: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:10rem;
+    gap:4rem;
     margin-top: 5rem;
     color: #FFF;
 }
 
 .initial-content{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
-.s-content{
+.start-content{
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    width: 20%;
+    width: 30%;
     padding-left: 2rem;
     height: 200px;
 }
 .flex-itens{
     display: flex;
-    justify-content: space-between;
+    
 }
 
 .sel-med{
@@ -129,32 +130,34 @@
 
 .mid-content{
     display: flex;
-    gap: 10rem;
+    justify-content: space-around ;
 }
 .m-content, .mm-content{
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    width: 25%;
-
 }
 .m-content{
-    width: 50%;
+    width: 65%;
+}
+.mm-content{
+    width: 30%;
 }
 
 
 .end-content{
 width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: #2A2A2B;
+box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+width: 98%;
+
+
 }
 .e-content{
-    background: #2A2A2B;
-    box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
 
-
-}
-#procedimentoChart{
-    width: 100px;
-    position: relative;
-    height: 100px;
 }

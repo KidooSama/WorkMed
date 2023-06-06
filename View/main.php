@@ -27,7 +27,7 @@ $expenseData = $patientDAO->getExpensesByMonth();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
    <?php
@@ -42,11 +42,11 @@ $expenseData = $patientDAO->getExpensesByMonth();
         <div class="text-h2">Seja bem vinda, User.</div>
 
 
-        <div class="content-form">
+    <div class="content-form">
 
-            <div class="initial-content">
+        <div class="initial-content">
 
-            <div class="s-content" id="medicos">
+            <div class="start-content" id="medicos">
                 <div class="flex-itens">
                     <h2>Médicos</h2>
                     <select name="medico" id="medico" class="sel-med">
@@ -61,7 +61,7 @@ $expenseData = $patientDAO->getExpensesByMonth();
             </div>
 
 
-            <div class="s-content" id="convenio">
+            <div class="start-content" id="convenio">
                 <div class="flex-itens">
                     <h2>Convênio</h2>
                     <select name="insurance" id="insurance" class="sel-med">
@@ -76,48 +76,50 @@ $expenseData = $patientDAO->getExpensesByMonth();
             </div>
 
 
-            <div class="s-content" id="updates">
-                    <h2>Juazeiro do Norte</h2>
+            <div class="start-content" id="day  Info">
+                <h2>Juazeiro Do Norte</h2>
+                <h3>Cirurgias <?= $patientDAO->getSurgerieToday()?> realizadas Hoje</h3>
+                <h4 id="dayNightText"></h4>
+                <img src="" alt="Day/Night" class="day-night-img" id="dayNightImage">
             </div>
 
         </div>
 
 
-            <div class="mid-content">
+        <div class="mid-content">
 
-                <div class="m-content" id="total-c">
-                    <h2>Cirurgias Realizadas</h2>
-                    <p><?= $patientDAO->getSurgeryTotal(); ?></p>
-                    <canvas id="surgeryChart"></canvas>
-                </div>
-
-                <div class="mm-content" id="cirurgias">
-                    <h2>Procedimentos</h2>
-                    <h4>Total Cirurgias</h4>
-                    <canvas id="procedimentoChart"></canvas>
-                </div>
-
+            <div class="m-content" id="total-c">
+                <h2>Cirurgias Realizadas</h2>
+                <p><?= $patientDAO->getSurgeryTotal(); ?></p>
+                <canvas id="surgeryChart"></canvas>
             </div>
-
-
-            <div class="end-content">
-                <div class="e-content" id="gastos">
-                    <h2>Gastos Totais</h2>  
-                    <h4>Com cirurgias</h4>
-                    <p><?= $patientDAO->getExpensesTotal(); ?></p>
-                    <canvas id="expenseChart"></canvas>
-
-                    
-                </div>
+            <div class="mm-content" id="cirurgias">
+                <h2>Procedimentos</h2>
+                <h4>Total Cirurgias</h4>
+                <canvas id="procedimentoChart"></canvas>
             </div>
-
-
-
 
         </div>
+
+        <div class="end-content">
+            <div class="title">
+                <h2>Gastos Totais</h2>  
+                <h4>Com cirurgias</h4>
+                <p><?= $patientDAO->getExpensesTotal(); ?></p>
+            </div>
+                <canvas id="expenseChart"></canvas>
+
+        </div>
+
+    </div>
 
 
     </section>
+
+
+
+
+
 
 
 <!--------------- Script para pegar quantidad de cirurgias por medico ---------->
@@ -170,6 +172,22 @@ $expenseData = $patientDAO->getExpensesByMonth();
             });
     });
 </script>
+
+<!--------------------- Script para API de clima e local ------------------------->
+<script>
+        var currentTime = new Date().getHours();
+
+        var dayNightText = document.getElementById('dayNightText');
+        var dayNightImage = document.getElementById('dayNightImage');
+
+        if (currentTime >= 6 && currentTime < 18) {
+            dayNightText.textContent = 'Está de dia';
+            dayNightImage.src = 'path/to/day-image.jpg';
+        } else {
+            dayNightText.textContent = 'Está de noite';
+            dayNightImage.src = 'path/to/night-image.jpg';
+        }
+    </script>
 
 <!--------------------- Script Para Procedimentos por cirurgias ------------------>
 <script>
@@ -291,12 +309,17 @@ gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
         tension: 0.4,
       }]
     },
+
     options: {
+
+        width: 200, 
+        height: 100 ,
         plugins: {
       legend: {
         position: 'none',
       },
     },  
+
       scales: {
         y: {
           beginAtZero: true,
