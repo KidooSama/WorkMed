@@ -34,19 +34,19 @@ class MedicDAO {
         }
         return $doctors;
     }
-    public function SurgeryNames(){
-        $sql = 'SELECT id, name FROM surgery';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-        $names = [];
-        if($stmt->rowCount() > 0){
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            foreach ($result as $row) {
-                $names[$row['name']] = $row['name'];
-            }
-        }
-        return $names;
-    }
+    // public function SurgeryNames(){
+    //     $sql = 'SELECT id, name FROM surgery';
+    //     $stmt = Conexao::getConn()->prepare($sql);
+    //     $stmt->execute();
+    //     $names = [];
+    //     if($stmt->rowCount() > 0){
+    //         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    //         foreach ($result as $row) {
+    //             $names[$row['name']] = $row['name'];
+    //         }
+    //     }
+    //     return $names;
+    // }
     public function getMedicById($id){
         $sql = 'SELECT * FROM doctor WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);

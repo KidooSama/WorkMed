@@ -108,6 +108,7 @@
     border-radius: 20px;
     width: 20%;
     padding-left: 2rem;
+    height: 200px;
 }
 .flex-itens{
     display: flex;

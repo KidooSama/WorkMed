@@ -2,11 +2,11 @@
 require_once '../php/patientDAO.php';
 
 if (isset($_GET['insurance'])) {
-    $medico = $_GET['insurance'];
+    $insurance = $_GET['insurance'];
 
     $patientDAO = new PatientDAO();
-    $numeroCirurgias = $patientDAO->getNumeroCirurgias($insurance);
+    $numeroICirurgias = $patientDAO->getNumeroCirurgiasInsurance($insurance);
 
-    echo json_encode(['count' => $numeroCirurgias]);
+    echo json_encode(['count' => $numeroICirurgias]);
     exit();
 }

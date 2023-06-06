@@ -162,7 +162,17 @@ class PatientDAO {
 
         return $count;
     }
-    
+    public function getNumeroCirurgiasInsurance($insurance) {
+        $sql = "SELECT COUNT(*) as count FROM patient WHERE insurance = :insurance";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(':insurance', $insurance, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $count = $result['count'];
+
+        return $count;
+    }
     
     
     

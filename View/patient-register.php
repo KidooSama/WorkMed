@@ -95,8 +95,8 @@
                         <label class="label-form" for="convenio">Convênio <span>*</span></label>
                             <select name="convenio" id="convenio" required class="input-form">
                                 <option value="">Selecione uma opção</option>
-                                <option value="sus">Sus</option>
-                                <option value="particular">Particular</option>
+                                <option value="SUS">Sus</option>
+                                <option value="Particular">Particular</option>
                             </select>
                         </div>
                     </div>

@@ -54,7 +54,7 @@ $insuranceNames = $patientDAO->InsuranceNames();
                     </select>
                 </div>
                 <h2 id="nomeMedico"></h2>
-                <h2 id="numeroCirurgias"></h2>
+                <h4 id="numeroCirurgias"></h4>
             </div>
 
 
@@ -69,7 +69,7 @@ $insuranceNames = $patientDAO->InsuranceNames();
                     </select>
                 </div>
                 <h2 id="nomeInsurance"></h2>
-                <h2 id="numeroICirurgias"></h2>
+                <h4 id="numeroICirurgias"></h4>
             </div>
 
 
@@ -139,31 +139,29 @@ $insuranceNames = $patientDAO->InsuranceNames();
     </script>
 
 <!-- Script para pegar quantidad de convenio por paciente -->
-    <script>
+<script>
+    var selectInsurance = document.getElementById('insurance');
+    var h2NomeInsurance = document.getElementById('nomeInsurance');
+    var divNumeroICirurgias = document.getElementById('numeroICirurgias');
 
-        var selectInsurance = document.getElementById('insurance');
-        var h2NomeInsurance = document.getElementById('nomeInsurance');
-        var divNumeroCirurgias = document.getElementById('numeroICirurgias');
+    selectInsurance.addEventListener('change', function() {
+        var selectedInsurance = selectInsurance.value;
 
-        selectInsurance.addEventListener('change', function() {
-            var selectedInsurance = selectInsurance.value;
+        // Atualizar o nome do convênio
+        h2NomeInsurance.textContent = selectedInsurance;
 
-            // Atualizar o nome do médico
-            h2NomeInsurance.textContent = selectedInsurance;
-
-            // Consultar o número de cirurgias cadastradas no nome do médico
-            fetch('../php/ajax_get_insurance_cirurgias.php?insurance=' + encodeURIComponent(selectedInsurance))
-                .then(response => response.json())
-                .then(data => {
-                    // Atualizar o número de cirurgias
-                    divNumeroInsurance.textContent = 'Número de Cirurgias: ' + data.count;
-                })
-                .catch(error => {
-                    console.error('Erro ao obter o número de cirurgias:', error);
-                });
-        });
-
-    </script>
+        // Consultar o número de cirurgias cadastradas no convênio
+        fetch('../php/ajax_get_insurance_cirurgias.php?insurance=' + encodeURIComponent(selectedInsurance))
+            .then(response => response.json())
+            .then(data => {
+                // Atualizar o número de cirurgias
+                divNumeroICirurgias.textContent = 'Número de Cirurgias: ' + data.count;
+            })
+            .catch(error => {
+                console.error('Erro ao obter o número de cirurgias:', error);
+            });
+    });
+</script>
 
 
 <!-- Grafico de Cirurgias por meses -->

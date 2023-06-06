@@ -1,11 +1,13 @@
 
 <!DOCTYPE html>
 <?php
+    require_once '../php/surgeryDao.php';
     require_once '../php/medicDAO.php';
     $doctorDAO = new MedicDAO();
     $doctorId = $_GET['id'];
     $doctor = $doctorDAO->getMedicById($doctorId);
-    $surgeryNames = $doctorDAO->SurgeryNames();
+    $surgeryDAO = new SurgeryDAO();
+    $surgeryNames = $surgeryDAO->SurgeryNames();
 ?>
 <html>
     <head>
@@ -75,7 +77,7 @@
 
                         <div class="flex-content">
                             <label class="label-form" for="crm">CRM <span>*</span></label>
-                            <input type="text" name="crm" oninput="formatar_crm(this)" value="<?= $doctor->getName() ?>" maxlength="9" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
+                            <input type="text" name="crm" oninput="formatar_crm(this)" value="<?= $doctor->getCrm() ?>" maxlength="9" id="crm" required placeholder="Ex.: 123456-CE" class="input-form">
                         </div>
 
                         <div class="flex-content">
