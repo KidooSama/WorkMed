@@ -99,7 +99,7 @@
                 <label class="label-form" for="convenio">Convênio <span>*</span></label>
                 <select name="convenio" id="convenio" required class="input-form">
                     <option value="">Selecione uma opção</option>
-                    <option value="SUS" <?= ($patient->getInsurance() === 'sus') ? 'selected' : '' ?>>Sus</option>
+                    <option value="SUS" <?= ($patient->getInsurance() === 'SUS') ? 'selected' : '' ?>>Sus</option>
                     <option value="Particular" <?= ($patient->getInsurance() === 'particular') ? 'selected' : '' ?>>Particular</option>
                 </select>
             </div>

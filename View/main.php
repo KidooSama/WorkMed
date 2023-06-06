@@ -9,6 +9,9 @@ $surgeryData = $patientDAO->getSurgeriesLastThreeMonths();
 $doctorNames = $patientDAO->DoctorNames();
 $insuranceNames = $patientDAO->InsuranceNames();
 $procedimentoData = $patientDAO->getSurgeriesProcedure();
+$expenseData = $patientDAO->getExpensesByMonth();
+
+
 ?>
 
 <html>
@@ -84,6 +87,7 @@ $procedimentoData = $patientDAO->getSurgeriesProcedure();
 
                 <div class="m-content" id="total-c">
                     <h2>Cirurgias Realizadas</h2>
+                    <p><?= $patientDAO->getSurgeryTotal(); ?></p>
                     <canvas id="surgeryChart"></canvas>
                 </div>
 
@@ -100,6 +104,10 @@ $procedimentoData = $patientDAO->getSurgeriesProcedure();
                 <div class="e-content" id="gastos">
                     <h2>Gastos Totais</h2>  
                     <h4>Com cirurgias</h4>
+                    <p><?= $patientDAO->getExpensesTotal(); ?></p>
+                    <canvas id="expenseChart"></canvas>
+
+                    
                 </div>
             </div>
 
@@ -169,7 +177,7 @@ $procedimentoData = $patientDAO->getSurgeriesProcedure();
 var surgeryData = <?php echo json_encode($procedimentoData); ?>;
 
 var typeSurgery = surgeryData.map(function(item) {
-    return item.type_surgery; // Altere para corresponder à coluna correta que contém o nome do tipo de cirurgia
+    return item.type_surgery; 
 });
 
 var surgeryCount = surgeryData.map(function(item) {
@@ -192,6 +200,7 @@ var myChart = new Chart(ctx, {
                 '#9966FF' 
             ],
             borderWidth: 0,
+            
         }]
     },
     options: {
@@ -241,17 +250,66 @@ var myChart = new Chart(ctx, {
             data: surgeryCount,
             backgroundColor: 'rgba(123, 123, 255, 0.5)'
         }]
+    }
+});
+
+    </script>
+
+<!---------------------- Script de Grafico de gastos por mes ---------------------->
+<script>
+  var expenseData = <?php echo json_encode($expenseData); ?>;
+  var gradient = ctx.createLinearGradient(0, 0, 0, 550); // Define o gradiente linear
+gradient.addColorStop(0, 'rgba(22, 160, 133, 1)'); // Cor inicial do gradiente
+gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
+
+
+  var months = expenseData.map(function(item) {
+    return item.month;
+  });
+
+  var expenses = expenseData.map(function(item) {
+    return item.expenses;
+  });
+
+  var ctx = document.getElementById('expenseChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [{
+        label: 'Gastos por Mês',
+        data: expenses,
+        backgroundColor: '#16A085',
+        borderColor: 'rgba(22, 160, 133, 1)',
+        pointBackgroundColor: 'rgba(22, 160, 133, 1)',
+        pointBorderColor: '#fff',
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        borderWidth: 2,
+        backgroundColor: gradient,
+        fill: true,
+        tension: 0.4,
+      }]
     },
     options: {
         plugins: {
       legend: {
         position: 'none',
       },
-    }
-    }
-});
+    },  
+      scales: {
+        y: {
+          beginAtZero: true,
+          stepSize: 1000, // Define o intervalo entre os valores do eixo y
+          // Mais configurações das escalas se necessário
+        }
+      },
 
-    </script>
+
+    }
+  });
+</script>
+
 
 <!------------------- Menu Sidebar ------------------------>
 <script>

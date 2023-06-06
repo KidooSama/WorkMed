@@ -200,6 +200,42 @@ class PatientDAO {
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getExpensesByMonth() {
+        $sql = "SELECT DATE_FORMAT(date_surgery, '%Y-%m') as month, SUM(expenses) as expenses
+                FROM patient
+                GROUP BY DATE_FORMAT(date_surgery, '%Y-%m')
+                ORDER BY DATE_FORMAT(date_surgery, '%Y-%m')";
+    
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+    
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getExpensesTotal() {
+        $sql = "SELECT SUM(expenses) as expenses FROM patient";
+        
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+        
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        
+        // Retorna somente o valor dos gastos totais
+        return $result['expenses'];
+    }
+    public function getSurgeryTotal() {
+        $sql = "SELECT COUNT(*) AS count FROM patient";
+        
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+        
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        
+        return $result['count'];
+    }
+    
     
     
 }
