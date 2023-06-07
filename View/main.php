@@ -85,38 +85,46 @@ $expenseData = $patientDAO->getExpensesByMonth();
 
         </div>
 
-
+        <!--------------- Grafico de Cirurgia por procedimento ----------------->
         <div class="mid-content">
 
             <div class="m-content" id="total-c">
                 <div class="title-sur">
-                   <h2>Gastos Totais</h2>  
+                   <h2>Cirurgias Realizadas</h2>  
                    <spam>Com cirurgias</spam>
                 </div>
+                <div class="title-total">
+                            <span>Total Realizado</span>
+                   </div>
 
                 <div class="chart-sur">
-                    
                     <div class="sur-mes">            
-                        <canvas id="surgeryChart" style="display: block; box-sizing: border-box; height: 623px; width: 847px;"></canvas>
+                        <canvas id="surgeryChart" style="display: block; box-sizing: border-box; height: 223px; width: 47px;"></canvas>
                     </div>
-
+                            
                     <div class="total">
-                            <p ><?= $patientDAO->getSurgeryTotal(); ?></p>
-                    </div>
+                        <p ><?= $patientDAO->getSurgeryTotal(); ?></p>
 
+                    </div>
                 </div>
+
             </div>
 
-        <!--------------- Cirurgia por procedimento ----------------->
+        <!--------------- Grafico de Cirurgia por procedimento ----------------->
 
             <div class="mp-content" id="cirurgias">
-                <h2>Procedimentos</h2>
-                <h4>Total Cirurgias</h4>
-                <canvas id="procedimentoChart"></canvas>
+            <div class="title-proc">
+                   <h2>Procedimentos</h2>  
+                   <spam>Total Cirurgias</spam>
+                </div>
+                <div class="sur-proc">
+                    <canvas id="procedimentoChart" style="display: block; box-sizing: border-box; height: 223px; width: 47px;"></canvas>
+                </div>
+
             </div>
 
         </div>
-
+    <!--------------- Grafico de Gastos ----------------->
         <div class="end-content">
             <div class="info">
                 <div class="title-ex">
@@ -144,7 +152,7 @@ $expenseData = $patientDAO->getExpensesByMonth();
 
 
 
-<!--------------- Script para pegar quantidad de cirurgias por medico ---------->
+<!--------------- Script para pegar quantidade de cirurgias por medico ---------->
     <script>
         var selectMedico = document.getElementById('medico');
         var h2NomeMedico = document.getElementById('nomeMedico');
@@ -239,19 +247,21 @@ var myChart = new Chart(ctx, {
                 '#C0392B',
                 '#AC3483',
                 '#1ABC9C',
-                '#2C2C54' 
+                '#2C2C54',
+                '#D4D4D4' 
             ],
             borderWidth: 0,
             
         }]
     },
     options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
-    }
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'right',
+            },
+        }, 
   },
 });
 
@@ -296,7 +306,7 @@ var myChart = new Chart(ctx, {
     options: {
 
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'none',
@@ -310,7 +320,7 @@ var myChart = new Chart(ctx, {
 <!---------------------- Script de Grafico de gastos por mes ---------------------->
 <script>
   var expenseData = <?php echo json_encode($expenseData); ?>;
-  var gradient = ctx.createLinearGradient(0, 0, 0, 300); // Define o gradiente linear
+  var gradient = ctx.createLinearGradient(0, 0, 0, 250); // Define o gradiente linear
 gradient.addColorStop(0, 'rgba(22, 160, 133, 1)'); // Cor inicial do gradiente
 gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
 

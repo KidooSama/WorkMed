@@ -127,6 +127,7 @@
     display: flex;
     justify-content: space-around ;
     
+    
 }
 .m-content, .mp-content{
     background: #2A2A2B;
@@ -147,7 +148,7 @@
 .title-sur h2{
     color: #AC3483;
     font-weight: 500;
-    font-size: 38px;
+    font-size: 34px;
 }
 .title-sur spam{
     font-weight: 300;
@@ -156,25 +157,38 @@
 }
 .chart-sur{
     display: flex;
-    gap: 4rem;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 1rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
 
 }
 .sur-mes{
     width: 40%;
-    height:40vh; 
-    padding: 2rem 0rem 2rem 2rem;
-
+    margin-left: 3rem;
 }
 .total{
     background: url(../Components/SVG/Ellipse\ rosa.svg);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 100% 100%;
     width: 50%;
     margin: 2rem 0% 2rem 0rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.total p{
+    font-size: 50px;
+}
+.title-total{
+    width: 40%;
+    display: flex;
+    margin-left: 58%;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+
 }
 
 
@@ -183,6 +197,28 @@
 
 .mp-content{
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 2%;
+}
+.title-proc{
+    align-items: baseline;
+    justify-content: space-between;
+    /* padding: 2rem 0rem 2rem 3rem; */
+    gap: .8rem;
+    display: flex;
+    flex-direction: column;
+}
+.title-proc h2{
+    color: #e74c3c  ;
+    font-weight: 500;
+    font-size: 34px;    
+}
+.title-proc spam{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
 }
 
 /* ------------------- Grafico de Gastos ---------------------- */
@@ -200,7 +236,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 2rem 5rem 2rem 6rem;
+    padding: 2rem 5rem 2rem 4rem;
 }
 .title-ex{
     gap: .8rem;
