@@ -102,13 +102,19 @@ $expenseData = $patientDAO->getExpensesByMonth();
         </div>
 
         <div class="end-content">
-            <div class="title">
-                <h2>Gastos Totais</h2>  
-                <h4>Com cirurgias</h4>
-                <p><?= $patientDAO->getExpensesTotal(); ?></p>
+            <div class="info">
+                <div class="title-ex">
+                    <h2>Gastos Totais</h2>  
+                    <spam>Com cirurgias</spam>
+                </div>
+                <div class="value">
+                    <p>R<spam>$</spam>:  <?= $patientDAO->getExpensesTotal(); ?><spam>,00</spam></p>
+                </div>
             </div>
-                <canvas id="expenseChart"></canvas>
 
+            <div class="expenses">  
+                <canvas id="expenseChart" ></canvas>
+            </div>
         </div>
 
     </div>
@@ -268,6 +274,13 @@ var myChart = new Chart(ctx, {
             data: surgeryCount,
             backgroundColor: 'rgba(123, 123, 255, 0.5)'
         }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                position: 'none',
+            },
+        }, 
     }
 });
 
@@ -276,18 +289,29 @@ var myChart = new Chart(ctx, {
 <!---------------------- Script de Grafico de gastos por mes ---------------------->
 <script>
   var expenseData = <?php echo json_encode($expenseData); ?>;
-  var gradient = ctx.createLinearGradient(0, 0, 0, 550); // Define o gradiente linear
+  var gradient = ctx.createLinearGradient(0, 0, 0, 300); // Define o gradiente linear
 gradient.addColorStop(0, 'rgba(22, 160, 133, 1)'); // Cor inicial do gradiente
 gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
 
 
   var months = expenseData.map(function(item) {
-    return item.month;
-  });
+    var monthYear = item.month;
+    var month = parseInt(monthYear.split('-')[1]);
+    var year = parseInt(monthYear.split('-')[0]);
+    return getMonthName(month) + ' ' + year;
+});
+function getMonthName(month) {
+    var monthNames = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+    return monthNames[month - 1];
+}
 
   var expenses = expenseData.map(function(item) {
     return item.expenses;
   });
+
 
   var ctx = document.getElementById('expenseChart').getContext('2d');
   var myChart = new Chart(ctx, {
@@ -312,19 +336,18 @@ gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
 
     options: {
 
-        width: 200, 
-        height: 100 ,
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
-      legend: {
-        position: 'none',
-      },
-    },  
+            legend: {
+                position: 'none',
+            },
+        },  
 
       scales: {
         y: {
           beginAtZero: true,
-          stepSize: 1000, // Define o intervalo entre os valores do eixo y
-          // Mais configurações das escalas se necessário
+          stepSize: 100, 
         }
       },
 

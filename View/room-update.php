@@ -59,12 +59,12 @@
                         <div class="surgery-type">
                             <label class="tx-proc">Tipo de Cirurgia</label>
                             <div class="check-proc">
-                                <?php foreach ($surgeryNames as $name) { ?>
-                                    <div class="checkbox">
-                                        <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
-                                        <label for="<?= $name ?>"><?= $name ?></label>
-                                    </div>
-                                <?php } ?>
+                        <?php foreach ($surgeryNames as $name) { ?>
+                        <div class="checkbox">
+                            <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
+                            <label for="<?= $name ?>"><?= $name ?></label>
+                        </div>
+                        <?php } ?>
                             </div>
                         </div>
 

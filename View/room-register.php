@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
     require_once '../php/roomDao.php';
-    $surgeryDAO = new RoomDAO();
+    require_once '../php/patientDao.php';
+    $surgeryDAO = new PatientDAO();
     $surgeryNames = $surgeryDAO->SurgeryNames();
 ?>
 <html>
@@ -53,12 +54,12 @@
 
                         </div>
 
-                        <div class="surgery-type">
+                       <div class="surgery-type">
                             <label class="tx-proc">Tipo de Cirurgia</label>
                             <div class="check-proc">
-                                <?php foreach ($surgeryNames as $name) { ?>
+                            <?php foreach ($surgeryNames as $name) { ?>
                                     <div class="checkbox">
-                                        <input type="checkbox" value="<?= $name ?>" name="surgery   " id="<?= $name ?>">
+                                        <input type="checkbox" value="<?= $name ?>" name="surgery" id="<?= $name ?>">
                                         <label for="<?= $name ?>"><?= $name ?></label>
                                     </div>
                                 <?php } ?>
