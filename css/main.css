@@ -156,14 +156,25 @@
 }
 .chart-sur{
     display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+
 }
 .sur-mes{
-    width: 100%;
+    width: 40%;
     height:40vh; 
-    padding: 2rem 10% 2rem 2rem;
+    padding: 2rem 0rem 2rem 2rem;
+
 }
-.t-num{
-    
+.total{
+    background: url(../Components/SVG/Ellipse\ rosa.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    margin: 2rem 0% 2rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

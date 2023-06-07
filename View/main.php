@@ -93,16 +93,15 @@ $expenseData = $patientDAO->getExpensesByMonth();
                    <h2>Gastos Totais</h2>  
                    <spam>Com cirurgias</spam>
                 </div>
+
                 <div class="chart-sur">
                     
                     <div class="sur-mes">            
-                        <canvas id="surgeryChart"></canvas>
+                        <canvas id="surgeryChart" style="display: block; box-sizing: border-box; height: 623px; width: 847px;"></canvas>
                     </div>
 
                     <div class="total">
-                        <div class="t-num"> 
                             <p ><?= $patientDAO->getSurgeryTotal(); ?></p>
-                        </div>
                     </div>
 
                 </div>
@@ -295,8 +294,9 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         plugins: {
             legend: {
                 position: 'none',
