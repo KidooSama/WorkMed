@@ -89,11 +89,28 @@ $expenseData = $patientDAO->getExpensesByMonth();
         <div class="mid-content">
 
             <div class="m-content" id="total-c">
-                <h2>Cirurgias Realizadas</h2>
-                <p><?= $patientDAO->getSurgeryTotal(); ?></p>
-                <canvas id="surgeryChart"></canvas>
+                <div class="title-sur">
+                   <h2>Gastos Totais</h2>  
+                   <spam>Com cirurgias</spam>
+                </div>
+                <div class="chart-sur">
+                    
+                    <div class="sur-mes">            
+                        <canvas id="surgeryChart"></canvas>
+                    </div>
+
+                    <div class="total">
+                        <div class="t-num"> 
+                            <p ><?= $patientDAO->getSurgeryTotal(); ?></p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="mm-content" id="cirurgias">
+
+        <!--------------- Cirurgia por procedimento ----------------->
+
+            <div class="mp-content" id="cirurgias">
                 <h2>Procedimentos</h2>
                 <h4>Total Cirurgias</h4>
                 <canvas id="procedimentoChart"></canvas>
@@ -179,7 +196,7 @@ $expenseData = $patientDAO->getExpensesByMonth();
     });
 </script>
 
-<!--------------------- Script para API de clima e local ------------------------->
+<!--------------------- Script para Dia ou Noite --------------------------------->
 <script>
         var currentTime = new Date().getHours();
 
@@ -188,10 +205,10 @@ $expenseData = $patientDAO->getExpensesByMonth();
 
         if (currentTime >= 6 && currentTime < 18) {
             dayNightText.textContent = 'Está de dia';
-            dayNightImage.src = 'path/to/day-image.jpg';
+            dayNightImage.src = '../Components/SVG/day.svg';
         } else {
             dayNightText.textContent = 'Está de noite';
-            dayNightImage.src = 'path/to/night-image.jpg';
+            dayNightImage.src = '../Components/SVG/night    .svg';
         }
     </script>
 
@@ -217,11 +234,13 @@ var myChart = new Chart(ctx, {
             label: 'Quantidade de Cirurgias',
             data: surgeryCount,
             backgroundColor: [
-                '#FF6384',
-                '#36A2EB',
-                '#FFCE56',
-                '#4BC0C0',
-                '#9966FF' 
+                '#27AE60',
+                '#FF7723',
+                '#308ECC',
+                '#C0392B',
+                '#AC3483',
+                '#1ABC9C',
+                '#2C2C54' 
             ],
             borderWidth: 0,
             
@@ -272,15 +291,17 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Quantidade de Cirurgias',
             data: surgeryCount,
-            backgroundColor: 'rgba(123, 123, 255, 0.5)'
+            backgroundColor: '#AC3483'
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'none',
             },
-        }, 
+        },  
     }
 });
 

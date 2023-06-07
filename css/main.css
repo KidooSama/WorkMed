@@ -121,12 +121,14 @@
     border: none;   
     width: 1.25rem;
 }
+/* ------------------- Grafico cirurgia/mes ---------------------- */
 
 .mid-content{
     display: flex;
     justify-content: space-around ;
+    
 }
-.m-content, .mm-content{
+.m-content, .mp-content{
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -134,7 +136,41 @@
 .m-content{
     width: 65%;
 }
-.mm-content{
+.title-sur{
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 2rem 0rem 2rem 3rem;
+    gap: .8rem;
+    display: flex;
+    flex-direction: column;
+}
+.title-sur h2{
+    color: #AC3483;
+    font-weight: 500;
+    font-size: 38px;
+}
+.title-sur spam{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
+}
+.chart-sur{
+    display: flex;
+}
+.sur-mes{
+    width: 100%;
+    height:40vh; 
+    padding: 2rem 10% 2rem 2rem;
+}
+.t-num{
+    
+}
+
+
+
+/* ------------------- Grafico cirurgia/procedimento ---------- */
+
+.mp-content{
     width: 30%;
 }
 
@@ -160,12 +196,6 @@
     display: flex;
     flex-direction: column;
 }
-.expenses{
-    position: relative; 
-    height:40vh; 
-    width:100%;
-    padding: 2rem 0px 2rem 2rem;
-}
 .title-ex h2{
     color: #1ABC9C;
     font-weight: 500;
@@ -175,6 +205,12 @@
     font-weight: 300;
     font-size: 20px;
     line-height: 20px;
+}
+.expenses{
+    position: relative; 
+    height:40vh; 
+    width:100%;
+    padding: 2rem 0px 2rem 2rem;
 }
 .value spam{
     color: #1ABC9C;
