@@ -135,7 +135,7 @@
     border-radius: 20px;
 }
 .m-content{
-    width: 65%;
+    width: 63%;
 }
 .title-sur{
     align-items: baseline;
@@ -166,6 +166,7 @@
 .sur-mes{
     width: 40%;
     margin-left: 3rem;
+    
 }
 .total{
     background: url(../Components/SVG/Ellipse\ rosa.svg);
@@ -184,7 +185,7 @@
 .title-total{
     width: 40%;
     display: flex;
-    margin-left: 58%;
+    margin-left: 61.5%;
     font-weight: 500;
     font-size: 30px;
     line-height: 37px;
@@ -220,7 +221,9 @@
     font-size: 20px;
     line-height: 20px;
 }
-
+.sur-proc{
+    padding-right: 10%;
+}
 /* ------------------- Grafico de Gastos ---------------------- */
 
 .end-content{
@@ -229,8 +232,9 @@
     background: #2A2A2B;
     box-shadow: 0px 3px 60px -2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    width: 98%;
+    width: 96%;
     margin-bottom: 2rem;
+    margin-left: 2%;
 }
 .info{
     display: flex;
@@ -257,7 +261,7 @@
     position: relative; 
     height:40vh; 
     width:100%;
-    padding: 2rem 0px 2rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
 }
 .value spam{
     color: #1ABC9C;
