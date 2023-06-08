@@ -118,7 +118,7 @@ $expenseData = $patientDAO->getExpensesByMonth();
                    <spam>Total Cirurgias</spam>
                 </div>
                 <div class="sur-proc">
-                    <canvas id="procedimentoChart" style="display: block; box-sizing: border-box; height: 223px; width: 47px;"></canvas>
+                    <canvas id="procedimentoChart" style="color: #AC3483;display: block; box-sizing: border-box; height: 223px; width: 47px;"></canvas>
                 </div>
 
             </div>
@@ -241,10 +241,10 @@ var myChart = new Chart(ctx, {
             label: 'Quantidade de Cirurgias',
             data: surgeryCount,
             backgroundColor: [
+                '#e74c3c',
+                '#308ECC',
                 '#27AE60',
                 '#FF7723',
-                '#308ECC',
-                '#C0392B',
                 '#AC3483',
                 '#1ABC9C',
                 '#2C2C54',
@@ -271,121 +271,174 @@ var myChart = new Chart(ctx, {
 
 <!------------------------ Grafico de Cirurgias por meses ----------------------->
     <script>
-var surgeryData = <?php echo json_encode($surgeryData); ?>;
+        var surgeryData = <?php echo json_encode($surgeryData); ?>;
 
-var months = surgeryData.map(function(item) {
-    var monthYear = item.month;
-    var month = parseInt(monthYear.split('-')[1]);
-    var year = parseInt(monthYear.split('-')[0]);
-    return getMonthName(month) + ' ' + year;
-});
+        var months = surgeryData.map(function(item) {
+            var monthYear = item.month;
+            var month = parseInt(monthYear.split('-')[1]);
+            var year = parseInt(monthYear.split('-')[0]);
+            return getMonthName(month) + ' ' + year;
+        });
 
-var surgeryCount = surgeryData.map(function(item) {
-    return item.count;
-});
+        var surgeryCount = surgeryData.map(function(item) {
+            return item.count;
+        });
 
-function getMonthName(month) {
-    var monthNames = [
-        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-    ];
-    return monthNames[month - 1];
-}
-
-var ctx = document.getElementById('surgeryChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: months,
-        datasets: [{
-            label: 'Quantidade de Cirurgias',
-            data: surgeryCount,
-            backgroundColor: '#AC3483'
-        }]
-    },
-    options: {
-
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'none',
+        function getMonthName(month) {
+            var monthNames = [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ];
+            return monthNames[month - 1];
+        }
+        var ctx = document.getElementById('surgeryChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Quantidade de Cirurgias',
+                    data: surgeryCount,
+                    backgroundColor: '#AC3483'
+                }]
             },
-        },  
-    }
-});
+            options: {
+                
+                
+                borderSkipped:'middle',
+                borderRadius: 6,
+                inflateAmount: -4,
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'none',
+                    },
+                },
+
+                scales: {
+                    
+                     y: {
+                        
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)', // Define a cor branca para as linhas de grade do eixo y
+                            
+                        },
+                        ticks: {
+                            crossAlign: 'near',
+                            maxTicksLimit: 7,
+                            color: '#AC3483',
+                        },
+                        border:{
+                            dash:[5,4]
+                        }
+                    },
+                    x: {
+                        
+                        grid: {
+                            color: 'rgba(255,255,255,0)', // Define a cor branca para as linhas de grade do eixo y
+                            
+                        },
+
+                    }
+                }
+        }
+        });
 
     </script>
 
 <!---------------------- Script de Grafico de gastos por mes ---------------------->
-<script>
-  var expenseData = <?php echo json_encode($expenseData); ?>;
-  var gradient = ctx.createLinearGradient(0, 0, 0, 250); // Define o gradiente linear
-gradient.addColorStop(0, 'rgba(22, 160, 133, 1)'); // Cor inicial do gradiente
-gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
+    <script>
+        var expenseData = <?php echo json_encode($expenseData); ?>;
+        var gradient = ctx.createLinearGradient(0, 0, 0, 290); // Define o gradiente linear
+        gradient.addColorStop(0, 'rgba(22, 160, 133, 1)'); // Cor inicial do gradiente
+        gradient.addColorStop(1, 'rgba(22, 160, 133, 0)'); // Cor final do gradiente
 
 
-  var months = expenseData.map(function(item) {
-    var monthYear = item.month;
-    var month = parseInt(monthYear.split('-')[1]);
-    var year = parseInt(monthYear.split('-')[0]);
-    return getMonthName(month) + ' ' + year;
-});
-function getMonthName(month) {
-    var monthNames = [
-        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-    ];
-    return monthNames[month - 1];
-}
-
-  var expenses = expenseData.map(function(item) {
-    return item.expenses;
-  });
-
-
-  var ctx = document.getElementById('expenseChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: months,
-      datasets: [{
-        label: 'Gastos por Mês',
-        data: expenses,
-        backgroundColor: '#16A085',
-        borderColor: 'rgba(22, 160, 133, 1)',
-        pointBackgroundColor: 'rgba(22, 160, 133, 1)',
-        pointBorderColor: '#fff',
-        pointRadius: 5,
-        pointHoverRadius: 7,
-        borderWidth: 2,
-        backgroundColor: gradient,
-        fill: true,
-        tension: 0.4,
-      }]
-    },
-
-    options: {
-
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'none',
-            },
-        },  
-
-      scales: {
-        y: {
-          beginAtZero: true,
-          stepSize: 100, 
+        var months = expenseData.map(function(item) {
+            var monthYear = item.month;
+            var month = parseInt(monthYear.split('-')[1]);
+            var year = parseInt(monthYear.split('-')[0]);
+            return getMonthName(month) + ' ' + year;
+        });
+        function getMonthName(month) {
+            var monthNames = [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ];
+            return monthNames[month - 1];
         }
-      },
+
+        var expenses = expenseData.map(function(item) {
+            return item.expenses;
+        });
 
 
-    }
-  });
-</script>
+        var ctx = document.getElementById('expenseChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+            labels: months,
+            datasets: [{
+                label: 'Gastos por Mês',
+                data: expenses,
+                backgroundColor: '#16A085',
+                borderColor: 'rgba(22, 160, 133, 1)',
+                pointBackgroundColor: 'rgba(22, 160, 133, 1)',
+                pointBorderColor: '#fff',
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                borderWidth: 3,
+                backgroundColor: gradient,
+                fill: true,
+                tension: 0.4,
+                // borderDashOffset: ,
+                
+            }]
+            },
+
+            options: {
+
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'none',
+                    },
+                },  
+
+            scales: {
+
+                y: {
+                    beginAtZero: true,
+                    stepSize: 100,
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)', // Define a cor branca para as linhas de grade do eixo y
+                            
+                        },
+                        ticks: {
+                            crossAlign: 'near',
+                            maxTicksLimit: 7,
+                            color: '#16A085',
+                        },
+                        border:{
+                            dash:[5,5]
+                        }
+                    },
+                    x: {
+                        
+                        grid: {
+                            color: 'rgba(255,255,255,0)', // Define a cor branca para as linhas de grade do eixo y
+                            
+                        },
+
+                    }
+            },
+
+
+            }
+        });
+    </script>
 
 
 <!------------------- Menu Sidebar ------------------------>
