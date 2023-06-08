@@ -46,46 +46,84 @@ $expenseData = $patientDAO->getExpensesByMonth();
 
         <div class="initial-content">
 
+                    <!---------- Script Medico ------------->
+
             <div class="start-content" id="medicos">
-                <div class="flex-itens">
-                    <h2>Médicos</h2>
+
+                <div class="title-m">
+                    <span>Médicos</span>
                     <select name="medico" id="medico" class="sel-med">
-                        <option disabled selected>Selecione o Médico</option>
+                    <option disabled selected>Selecione o Convenio</option> 
                         <?php foreach ($doctorNames as $name) { ?>
                             <option value="<?= $name ?>"><?= $name ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <h2 id="nomeMedico"></h2>
-                <h4 id="numeroCirurgias"></h4>
+
+                <div class="content-flex">
+                    <div class="name-m">
+                        <span id="nomeMedico">Selecione um Médico</span>
+                        <p>Total Cirurgias</p>
+                    </div>
+                    <div class="total-m">
+                        <p id="numeroCirurgias">0</p>
+                    </div>
+                </div>
+
             </div>
 
+                    <!---------- Script Convenio ------------->
 
             <div class="start-content" id="convenio">
-                <div class="flex-itens">
-                    <h2>Convênio</h2>
-                    <select name="insurance" id="insurance" class="sel-med">
+
+                <div class="title-c">
+                    <span>Convênio</span>
+                    <select name="insurance" id="insurance" class="sel-con">
                         <option disabled selected>Selecione o Convenio</option>
                         <?php foreach ($insuranceNames as $name) { ?>
                             <option value="<?= $name ?>"><?= $name ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <h2 id="nomeInsurance"></h2>
-                <h4 id="numeroICirurgias"></h4>
+
+                <div class="content-flex">
+                    <div class="name-c">
+                        <span id="nomeInsurance">Selecione um Convenio</span>
+                        <p>Total Cirurgias</p>
+                    </div>
+                    <div class="total-c">
+                        <p id="numeroICirurgias">0</p>
+                    </div>
+                </div>
+
             </div>
 
+                    <!---------- Script Informação Geral ------------->
 
             <div class="start-content" id="day  Info">
-                <h2>Juazeiro Do Norte</h2>
-                <h3>Cirurgias <?= $patientDAO->getSurgerieToday()?> realizadas Hoje</h3>
-                <h4 id="dayNightText"></h4>
-                <img src="" alt="Day/Night" class="day-night-img" id="dayNightImage">
+                <div class="title-flex">
+                    <div class="title-i">
+                        <span>Juazeiro Do Norte <img src="../Components/SVG/location.svg" alt=""></span>
+                    </div>
+                    <div class="total-i">
+                        <p>28°</p>
+                    </div>
+                </div>
+                <div class="content-i">   
+                    <div class="sur-dia">     
+                        <p><?= $patientDAO->getSurgerieToday()?> <span>Cirurgias</span></p>
+                        <span>Registradas Hoje</span>
+                    </div>
+                    <div class="clima">        
+                        <h4 id="dayNightText"></h4>
+                        <img src="" alt="Day/Night" class="day-night-img" id="dayNightImage">
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        <!--------------- Grafico de Cirurgia por procedimento ----------------->
+        <!--------------- Grafico de Cirurgia por Mes ----------------->
         <div class="mid-content">
 
             <div class="m-content" id="total-c">
@@ -152,33 +190,31 @@ $expenseData = $patientDAO->getExpensesByMonth();
 
 
 
-<!--------------- Script para pegar quantidade de cirurgias por medico ---------->
+<!---------------------------------- Script medico --------------------------------->
     <script>
         var selectMedico = document.getElementById('medico');
         var h2NomeMedico = document.getElementById('nomeMedico');
         var divNumeroCirurgias = document.getElementById('numeroCirurgias');
 
         selectMedico.addEventListener('change', function() {
-            var selectedMedico = selectMedico.value;
+            var selectedMedico =  selectMedico.value;
 
             // Atualizar o nome do médico
-            h2NomeMedico.textContent = selectedMedico;
+            h2NomeMedico.textContent = 'Dr. '+ selectedMedico;
 
             // Consultar o número de cirurgias cadastradas no nome do médico
-            fetch('../php/ajax_get_cirurgias.php?medico=' + encodeURIComponent(selectedMedico))
+            fetch('../php/ajax_get_cirurgias.php?medico=' +  encodeURIComponent(selectedMedico))
                 .then(response => response.json())
                 .then(data => {
                     // Atualizar o número de cirurgias
-                    divNumeroCirurgias.textContent = 'Número de Cirurgias: ' + data.count;
+                    divNumeroCirurgias.textContent =  data.count;
                 })
-                .catch(error => {
-                    console.error('Erro ao obter o número de cirurgias:', error);
-                });
+               
         });
 
     </script>
 
-<!------------ Script para pegar quantidade de convenio por paciente ------------->
+<!---------------------------------- Script convenio -------------------------------->
 <script>
     var selectInsurance = document.getElementById('insurance');
     var h2NomeInsurance = document.getElementById('nomeInsurance');
@@ -195,15 +231,12 @@ $expenseData = $patientDAO->getExpensesByMonth();
             .then(response => response.json())
             .then(data => {
                 // Atualizar o número de cirurgias
-                divNumeroICirurgias.textContent = 'Número de Cirurgias: ' + data.count;
+                divNumeroICirurgias.textContent =  data.count;
             })
-            .catch(error => {
-                console.error('Erro ao obter o número de cirurgias:', error);
-            });
     });
 </script>
 
-<!--------------------- Script para Dia ou Noite --------------------------------->
+<!----------------------------- Script Dia ou Noite --------------------------------->
 <script>
         var currentTime = new Date().getHours();
 
