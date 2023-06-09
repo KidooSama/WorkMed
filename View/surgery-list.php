@@ -11,7 +11,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/medic-list.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/surgery-list.css'>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

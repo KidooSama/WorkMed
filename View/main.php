@@ -114,8 +114,11 @@ $expenseData = $patientDAO->getExpensesByMonth();
                         <p><?= $patientDAO->getSurgerieToday()?> <span>Cirurgias</span></p>
                         <span>Registradas Hoje</span>
                     </div>
-                    <div class="clima">        
-                        <h4 id="dayNightText"></h4>
+                    <div class="clima">
+                        <div>        
+                            <p>Está de</p>
+                            <h4 id="dayNightText"></h4>
+                        </div>
                         <img src="" alt="Day/Night" class="day-night-img" id="dayNightImage">
                     </div>
                 </div>
@@ -244,11 +247,11 @@ $expenseData = $patientDAO->getExpensesByMonth();
         var dayNightImage = document.getElementById('dayNightImage');
 
         if (currentTime >= 6 && currentTime < 18) {
-            dayNightText.textContent = 'Está de dia';
+            dayNightText.textContent = ' Dia';
             dayNightImage.src = '../Components/SVG/day.svg';
         } else {
-            dayNightText.textContent = 'Está de noite';
-            dayNightImage.src = '../Components/SVG/night    .svg';
+            dayNightText.textContent = ' Noite';
+            dayNightImage.src = '../Components/SVG/night.svg';
         }
     </script>
 
@@ -275,9 +278,9 @@ var myChart = new Chart(ctx, {
             data: surgeryCount,
             backgroundColor: [
                 '#e74c3c',
-                '#308ECC',
-                '#27AE60',
                 '#FF7723',
+                '#27AE60',
+                '#308ECC',
                 '#AC3483',
                 '#1ABC9C',
                 '#2C2C54',

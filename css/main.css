@@ -150,6 +150,7 @@ select::-ms-expand {
     display: none;
   }
 
+
 .content-flex{
     display: flex;
     justify-content: space-between;
@@ -241,7 +242,7 @@ select::-ms-expand {
     font-size: 40px;
 }
 
-/* -------------------------- Cirurgi Por Dia ----------=--------------------- */
+/* -------------------------- Cirurgi Por Dia ------------------------------- */
 
 .title-i{
     display: flex;
@@ -274,6 +275,9 @@ select::-ms-expand {
 .clima{
     display: flex;
 }
+.clima h4{
+    color: #27AE60;
+}
 .sur-dia p{
    color: #27AE60;
    font-size: 34px;
@@ -293,8 +297,17 @@ select::-ms-expand {
     align-items: center;
     gap: 2rem;
     margin-top: 2.5rem;
+    margin-bottom: 2rem;
+    color: 
+    #e74c3c
+    #FF7723
+    #308ECC
+    
+    #AC3483
+    #1ABC9C
+    #2C2C54
+    #D4D4D4;
 }
-
 
 /* -------------------------- Grafico cirurgia/mes --------------------------- */
 
@@ -356,14 +369,14 @@ select::-ms-expand {
     justify-content: center;
 }
 .total p{
-    font-size: 50px;
+    font-size: 60px;
 }
 .title-total{
     width: 40%;
     display: flex;
-    margin-left: 61.5%;
+    margin-left: 59%;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 38px;
     line-height: 37px;
 
 }
