@@ -88,7 +88,7 @@ body{
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
-    color: #AC3483;
+    color: #16A085;
 }
 .text3{
     font-size: 22px;
@@ -96,7 +96,7 @@ body{
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
-    color: #AC3483;
+    color: #16A085;
 }
 .text4{
     font-size: 22px;
@@ -180,7 +180,7 @@ body{
 } 
 
 .list{
-    filter: saturate(0%);
+    filter: saturate(100%);
 }
 .list:hover{
     filter: saturate(100%);

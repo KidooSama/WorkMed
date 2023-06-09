@@ -1,7 +1,7 @@
 
 
 .text{
-    font-size: 22px;
+    font-size: 20px!important;
     font-weight: 600;
     white-space: nowrap;
     opacity: 1;
@@ -14,15 +14,16 @@
     white-space: nowrap;
     opacity: 1;
     margin-left: 1rem;
-    color: #FFF;
+    color: #AC3483!important;
 }
 .text3{
-    font-size: 20px;
+    font-size: 22px!important;
     white-space: nowrap;
+    font-weight: 600!important;
     opacity: 1;
     margin-left: 1rem;
-    color: #fff;
-    font-weight: 400;
+    color: #AC3483;
+    
 }
 .text4{
     font-size: 20px;
@@ -33,14 +34,6 @@
     color: #FFF;
 }
 
-
-.register{
-    filter: saturate(100%)!important;
-}
-.register:hover{
-    filter: saturate(100%);
-    transition:var(--tran-04) ;
-} 
 
 
 /* Conteudo que vai dentro do site */
@@ -74,6 +67,32 @@
     gap: 6rem;
 
 }
+.btn-cad{
+    margin-left: 68%;
+    position: relative;
+    top: 60px;
+    margin-top: 5rem;
+}
+.cad-btn{
+    border: none;
+    padding: 5px 15px 14px 15px ;
+    background-color: #16A085;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 1.1rem;
+    border-radius: 9px;
+    cursor: pointer;
+
+}
+.cad-btn img{
+    
+        position: relative;
+        top: 7px;
+        /* left: 10px; */
+        padding-left: 12px;
+        /* padding-top: 10px; */
+    
+}
 
 /*---------------- Formulário ------------------*/
 
@@ -82,9 +101,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 3.5%;
     margin-left: 9rem;
     width: 90%;
+
+
 }
 .form{
     display: flex;
@@ -92,7 +113,8 @@
     flex-wrap: wrap;
     width: 55%;
     color: #FFF;
-    margin-top: 2rem;
+    margin-top: 3rem;
+
 }
 .btn-form{
     display: flex;
@@ -210,15 +232,28 @@ details summary::-webkit-details-marker {
     justify-content: space-between;
 }
 
+/*------------------------------ Form Btn ------------------------------------*/
+.btn-action {
+    position: relative;
+    left: -90px;
 
-.delete-btn {
-    border: none;
-    padding: 5px;
-    background-color: #16A085;
-    border-radius: 5px;
-    color: #FFF;
-    font-size: .7rem;
-    
-    
   }
+.btn-u{
+    position: absolute;
+    left: -18px;
+    top: 50px;
+}
+.btn-d{
+    position: absolute;
+    left: 15px;
+    top: 50px;
 
+}
+.form-flex{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+    
+}

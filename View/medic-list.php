@@ -23,7 +23,7 @@
     <!-- --------------- Menu Sidebar --------------- -->
 
     <?php
-        include ('./sidebar.html')
+        include ('./sidebar-med.html')
    ?>
 
     <!-- --------------- Conteudo Principal --------------- -->
@@ -34,16 +34,19 @@
             <div class="text-menu">Listagem</div>
         </div>
         <div class="text-h2">Médico</div>
-
+        <div class="btn-cad">
+                <a href="./medic-register.php"><button class="cad-btn">Cadastrar<img src="../Components/SVG/cadastro.svg" alt=""></button></a>
+            </div>
         <div class="content-form">
 
             <!-- --------------- InputFields --------------- -->
-
+            
             <?php foreach ($doctors as $doctor) { ?>
+            <div class="form-flex">
                 <form method="get" action="../php/PostArchives.php" class="form">
 
                     <details class="list-form">
-                        <summary><img src="../Components/SVG/Rectangle verde.svg" class="img-ret" alt=""><img src="../Components/SVG/user verde.svg" class="img-user" alt="">     <?= $doctor->getName() ?></summary>                       
+                        <summary><img src="../Components/SVG/Rectangle verde.svg" class="img-ret" alt=""><img src="../Components/SVG/user verde.svg" class="img-user" alt="">Dr. <?= $doctor->getName() ?></summary>                       
                         <div class="list-flex">
                             <div class="dados">
                                 <h1>Dados Pessoais</h1>
@@ -80,8 +83,10 @@
                             </div>
                             <div class="especs">
                                 <h1>Especificações</h1>
+
                                     <div class="info-container">
                                         <div class="flex-third"> 
+
                                             <div class="info-flex">
                                                 <span>Especialidade</span>
                                                 <p><?= $doctor->getSpeciality() ?></p>
@@ -90,6 +95,7 @@
                                                 <span>CRM</span>
                                                 <p><?= $doctor->getCrm() ?></p>
                                             </div>
+
                                         </div>
                                     </div>                                
                             </div>
@@ -98,9 +104,15 @@
 
                     </form>
                     <div class="btn-action">
-                        <a href="./medic-update.php?id=<?= $doctor->getId() ?>"><button class="delete-btn">Editar</button></a>
-                        <a href="../php/deleteMedic.php?id=<?= $doctor->getId() ?>"><button class="delete-btn">Excluir</button></a>
+                        <details class="det-btn">
+                            <summary><img src="../Components/SVG/3dot.svg" alt=""></summary>
+                            <summary class="flex-img">
+                                <a href="./medic-update.php?id=<?= $doctor->getId() ?>"><img src="../Components/SVG/update verde.svg" alt=""     class="btn-u" ></a>
+                                <a  href="../php/deleteMedic.php?id=<?= $doctor->getId() ?>"><img src="../Components/SVG/delete verde.svg" alt=""class="btn-d"></a>
+                            </summary>
+                        </details>
                     </div>
+                </div>
                     
                     
                 

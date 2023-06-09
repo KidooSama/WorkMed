@@ -45,11 +45,11 @@
 
                             <div class="flex-content">
                                 <label class="tx"  for="name" >Nome da Sala <span>*</span></label>
-                                <input name="name" id="" class="name" placeholder="Ex.: Sala 1 ">
+                                <input name="name" required id="" class="name" placeholder="Ex.: Sala 1 ">
                             </div>
                             <div class="flex-content">
                                 <label class="tx">Localidade da Sala <span>*</span></label>
-                                <input type="text" name="location" id="" placeholder="Ex.: 2° Corredor, 3° Andar" class="locate">
+                                <input type="text" name="location" required id="" placeholder="Ex.: 2° Corredor, 3° Andar" class="locate">
                             </div>
 
                         </div>
