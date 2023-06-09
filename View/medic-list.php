@@ -30,10 +30,12 @@
 
     <section class="home">
         <div class="title">
+        <div class="back"><a href="./select-list.php"><img src="../Components/SVG/arrow-v.svg" alt=""></a></div>
             <div class="stick"></div>
             <div class="text-menu">Listagem</div>
         </div>
         <div class="text-h2">Médico</div>
+        
         <div class="btn-cad">
                 <a href="./medic-register.php"><button class="cad-btn">Cadastrar<img src="../Components/SVG/cadastro.svg" alt=""></button></a>
             </div>
