@@ -30,7 +30,7 @@
 
     <section class="home">
         <div class="title">
-        <div class="back"><a href="./select-list.php"><img src="../Components/SVG/arrow-r.svg" alt=""></a></div>
+            <div class="back"><a href="./select-list.php"><img src="../Components/SVG/arrow-r.svg" alt=""></a></div>
             <div class="stick"></div>
             <div class="text-menu">Listagem</div>
         </div>
@@ -53,7 +53,7 @@
                                     <div class="info-container">
                                         <div>   
                                             <div class="info-flex">
-                                                <span>Nome Da Sala</span>
+                                                <span>Nome Do Procedimento</span>
                                                 <p><?= $surgery->getName() ?></p>
                                             </div>
                                         </div> 

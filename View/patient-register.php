@@ -25,12 +25,13 @@
 
     <!-- --------------- Menu Sidebar --------------- -->
     <?php
-        include ('./sidebar.html')
+        include ('./sidebar-patient.html')
     ?>
      <!-- --------------- Conteudo Principal --------------- -->
 
     <section class="home">
         <div class="title">
+            <div class="back"><a href="./select-register.php"><img src="../Components/SVG/arrow-l.svg" alt=""></a></div>
             <div class="stick"></div>
             <div class="text-menu">Cadastro</div>
         </div>

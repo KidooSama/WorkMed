@@ -187,9 +187,9 @@ details summary::-webkit-details-marker {
 }
 .info-container{
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     padding-top: 1rem;
-    justify-content: center;
+    justify-content: space-between;
 }
 .dados{
     width: 45%;
@@ -198,7 +198,7 @@ details summary::-webkit-details-marker {
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    margin-left: 3rem;
+    text-align: center;
     letter-spacing: 0.09em;
     text-transform: uppercase;
 
@@ -227,13 +227,14 @@ details summary::-webkit-details-marker {
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    margin-left: 4rem;
+    text-align: center;
     letter-spacing: 0.09em;
     text-transform: uppercase;
 }
 .flex-third{
     display: flex;
-    gap: 4rem;
+    justify-content: space-between;
+    gap: 2rem;
     padding-top: 1rem;
     
 }

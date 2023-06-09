@@ -90,7 +90,7 @@
     justify-content: end;
 }
 .form span{
-    color: #16A085;
+    color: #AC3483;
 }
 input, input[type="date"]::placeholder {
     padding: 25px;
@@ -157,11 +157,14 @@ details summary::-webkit-details-marker {
 .dados{
     width: 45%;
 }
+.dados div{
+    padding-top: 1rem;
+}
 .dados h1{
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    margin-left: 3rem;
+    text-align: center;
     letter-spacing: 0.09em;
     text-transform: uppercase;
 
@@ -190,13 +193,12 @@ details summary::-webkit-details-marker {
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    margin-left: 4rem;
+    text-align: center;
     letter-spacing: 0.09em;
     text-transform: uppercase;
 }
 .flex-third{
     display: flex;
-    gap: 4rem;
     padding-top: 1rem;
     justify-content: space-between;
 }
