@@ -12,6 +12,7 @@ class SuperuserDAO {
         $id = Conexao::getConn()->lastInsertid('superuser');
         $superuser->setId($id); 
     }
+    
     public function login(Superuser $superuser) {
         $sql = 'SELECT * FROM superuser WHERE user = ?';
         $stmt = Conexao::getConn()->prepare($sql);

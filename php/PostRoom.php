@@ -12,5 +12,5 @@ $room = new Room($name,$location,$type_surgeries,$description);
 $roomDAO->create($room);
 
 
-header('Location: ../view/select-list.php');
+header('Location: ../view/room-list.php');
 ?>

@@ -39,7 +39,7 @@ $expenseData = $patientDAO->getExpensesByMonth();
             <div class="stick"></div>
             <div class="text-menu">Dashboard</div>
         </div>
-        <div class="text-h2">Seja bem vinda, User.</div>
+        <div class="text-h2">Seja bem vindo(a)!</div>
 
 
     <div class="content-form">
